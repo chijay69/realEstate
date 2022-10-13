@@ -1,0 +1,79 @@
+<div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-6" style="padding:10px;">
+                                            <p>Balance: <span style="color: black; width: 30px; border-radius: 5px; border:2px solid darkgrey; background-color: #5555; padding:5px;"><i class="fa fa-dollar">    </i>00000.00</span>
+                                            </p>
+                                            <br>
+                                            <p>BTC Balance: <span style="color: black; border-radius: 5px; border:2px solid darkgrey; background-color: #5555; padding: 5px;"><i class="fa fa-bitcoin">    </i>000.0000</span></p>
+                                            <br>
+                                            <p>Account level: <span style="color: black; border-radius: 5px; border:2px solid darkgrey; background-color: #5555; padding: 5px;">        Starter</span>
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-6" style="padding:10px;">
+                                            <p>FIRSTNAME: {{ user.first_name }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- TradingView Widget BEGIN -->
+                                <div class="tradingview-widget-container">
+                                  <div id="tradingview_c7345"></div>
+                                  <div class="tradingview-widget-copyright">
+                                      <a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/" rel="noopener" target="_blank">
+                                          <span class="blue-text">AAPL Chart</span>
+                                      </a> by TradingView
+                                  </div>
+                                  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                                  <script type="text/javascript">
+                                  new TradingView.widget(
+                                  {
+                                  "width": 980,
+                                  "height": 610,
+                                  "symbol": "NASDAQ:AAPL",
+                                  "interval": "D",
+                                  "timezone": "Etc/UTC",
+                                  "theme": "dark",
+                                  "style": "1",
+                                  "locale": "en",
+                                  "toolbar_bg": "#f1f3f6",
+                                  "enable_publishing": false,
+                                  "allow_symbol_change": true,
+                                  "container_id": "tradingview_c7345"
+                                }
+                                  );
+                                  </script>
+                                </div>
+                                <!-- TradingView Widget END -->
+                            </div>
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12" >
+                                    <!-- TradingView Widget BEGIN -->
+                                    <div class="tradingview-widget-container" style="margin: auto;  width: 50%;  border: 3px solid clear;  padding: 10px;">
+                                      <div class="tradingview-widget-container__widget" style="margin: auto;  width: 50%;  border: 3px solid clear;  padding: 10px;">
+                                          <p>YES</p>
+                                      </div>
+                                      <div class="tradingview-widget-copyright" style="margin: auto;  width: 50%; padding: 10px;">
+                                          <a href="https://www.tradingview.com/markets/cryptocurrencies/prices-all/" rel="noopener" target="_blank">
+                                              <span class="blue-text">Cryptocurrency Markets</span>
+                                          </a> by TradingView
+                                      </div>
+                                      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+                                      {
+                                      "width": 1000,
+                                      "height": 490,
+                                      "defaultColumn": "overview",
+                                      "screener_type": "crypto_mkt",
+                                      "displayCurrency": "USD",
+                                      "colorTheme": "dark",
+                                      "locale": "en"
+                                    }
+                                      </script>
+                                    </div>
+                                    <!-- TradingView Widget END -->
+                                </div>
