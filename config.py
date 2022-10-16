@@ -23,10 +23,7 @@ class Config:
 class DevelopmentConfig(Config):
     DEBUG = True
     DEVELOPMENT = True
-    SQLALCHEMY_DATABASE_URI = os.environ.get(
-        'DEV_DATABASE_URL') or 'postgresql://vbwngulfddcpal' \
-                               ':ffdfce199412c9d4ce48c2d062d31a88cfd1e836c995afe36cb22347a30f125c@ec2-107-20-153-39' \
-                               '.compute-1.amazonaws.com:5432/d7tjl5rfsbe82c '
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or 'postgresql://soyxnqrrbjdoha:6e9208e087cc0ddbffe674f4fa02eafd572abf076223513df7994b0869ff0943@ec2-44-209-24-62.compute-1.amazonaws.com:5432/d5c85jauulh1p0'
 
 
 class TestingConfig(Config):
@@ -41,8 +38,7 @@ class ProductionConfig(Config):
     # vbwngulfddcpal IS THE OWNER SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or
     # 'postgresql://fccmgxakoiktbg:e890e52e36c2e4861997175923d3ae74aaae43006a092521b6cff2b7090d3895@ec2-184-73-243
     # -101.compute-1.amazonaws.com:5432/dfimbmmvq1ug8d' old database
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'postgresql://vbwngulfddcpal' \
-                                                                ':ffdfce199412c9d4ce48c2d062d31a88cfd1e836c995afe36cb22347a30f125c@ec2-107-20-153-39.compute-1.amazonaws.com:5432/d7tjl5rfsbe82c '
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'postgres://soyxnqrrbjdoha:6e9208e087cc0ddbffe674f4fa02eafd572abf076223513df7994b0869ff0943@ec2-44-209-24-62.compute-1.amazonaws.com:5432/d5c85jauulh1p0'
 
 
 config = {

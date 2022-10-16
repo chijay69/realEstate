@@ -58,11 +58,6 @@ def shopping_checkout():
     return render_template('main/shopping-checkout.html')
 
 
-@main.route('/faq')
-def faq():
-    return render_template('main/faq.html')
-
-
 @main.route('/contact', methods=['GET', 'POST'])
 def contact():
     form = ContactForm()
@@ -85,10 +80,24 @@ def upgrade():
     return render_template('main/upgrade.html')
 
 
-# renders display
 @main.route('/team')
 def team():
     return render_template('main/display.html')
+
+
+@main.route('/faq')
+def faq():
+    return render_template('main/faq.html')
+
+
+@main.route('/agency')
+def agency():
+    return render_template('main/agency.html')
+
+
+@main.route('/blog')
+def blog():
+    return render_template('main/blog-list-mix-left-sidebar.html')
 
 
 @main.route('/terms-of-services')
