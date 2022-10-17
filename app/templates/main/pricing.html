@@ -5,11 +5,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sheltos - Agency grid page">
+    <meta name="description" content="Sheltos - Pricing page">
     <meta name="keywords" content="sheltos">
     <meta name="author" content="sheltos">
     <link rel="icon" href="{{ url_for('static', filename='assets/images/favicon.png') }}" type="image/x-icon">
-    <title>Agency</title>
+    <title>Pricing</title>
 
    <!--Google font-->
     <link href="{{ url_for('static', filename='css?family=Montserrat:400,400i,500,500i,600,600i,700,700i,800,800i') }}" rel="stylesheet">
@@ -535,11 +535,11 @@
         <div class="container">
             <div class="breadcrumb-content">
                 <div>
-                    <h2>Agency Grid</h2>
+                    <h2>Pricing</h2>
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Agency Grid</li>
+                            <li class="breadcrumb-item active" aria-current="page">Pricing</li>
                         </ol>
                     </nav>
                 </div>
@@ -548,501 +548,240 @@
     </section>
     <!-- breadcrumb end -->
 
-    <!-- agent grid section start -->
-    <section class="agent-section property-section">
+    <!-- pricing plan section start -->
+    <section class="pricing-section slick-between slick-shadow pricing-inner">
         <div class="container">
-            <div class="row ratio2_3">
-                <div class="col-xl-9 col-lg-8 property-grid-3 agent-grids">
-                    <div class="filter-panel">
-                        <div class="top-panel">
-                            <div>
-                                <h2>Agency Listing</h2>
-                                <span class="show-result">Showing <span>1-15 of 69</span> Listings</span>
-                            </div>
-                            <ul class="grid-list-filter d-flex">
-                                <li>
-                                    <div class="dropdown">
-                                        <span class="dropdown-toggle font-rubik" data-bs-toggle="dropdown"><span>Sort by
-                                                Newest</span> <i class="fas fa-angle-down ms-lg-3 ms-2"></i></span>
-                                        <div class="dropdown-menu text-start">
-                                            <a class="dropdown-item" href="javascript:void(0)">Sort by Newest</a>
-                                            <a class="dropdown-item" href="javascript:void(0)">Sort by Oldest</a>
-                                            <a class="dropdown-item" href="javascript:void(0)">Sory by featured</a>
-                                            <a class="dropdown-item" href="javascript:void(0)">Sort by price (Low to
-                                                high)</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="collection-grid-view">
-                                    <ul>
-                                        <li><img src="{{ url_for('static', filename='assets/images/icon/2.png') }}" alt="" class="product-2-layout-view"></li>
-                                        <li><img src="{{ url_for('static', filename='assets/images/icon/3.png') }}" alt="" class="product-3-layout-view"></li>
-                                        <li><img src="{{ url_for('static', filename='assets/images/icon/4.png') }}" alt="" class="product-4-layout-view"></li>
-                                    </ul>
-                                </li>
-                                <li class="grid-btn active">
-                                    <a href="javascript:void(0)" class="grid-layout-view">
-                                        <i data-feather="grid"></i>
-                                    </a>
-                                </li>
-                                <li class="list-btn">
-                                    <a href="javascript:void(0)" class="list-layout-view">
-                                        <i data-feather="list"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
+            <div class="row">
+                <div class="col">
+                    <div class="title-2">
+                        <h2>pricing Plan</h2>
+                        <p>Discover New York’s best things to do, restaurants, theatre, nightlife and more</p>
                     </div>
-                    <div class="property-wrapper-grid">
-                        <div class="property-2 row column-sm property-label property-grid">
-                            <div class="col-xl-4 col-md-6 wow fadeInUp">
-                                <div class="property-box">
-                                    <div class="agent-image">
-                                        <div>
-                                            <img src="{{ url_for('static', filename='assets/images/agency/1.png') }}" class="bg-img" alt="">
-                                            <span class="label label-shadow">2 properties</span>
-                                            <div class="agent-overlay"></div>
-                                            <div class="overlay-content">
-                                                <ul>
-                                                    <li><a href="https://accounts.google.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-1.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://twitter.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-2.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://www.facebook.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-3.png') }}" alt=""></a>
-                                                    </li>
-                                                </ul>
-                                                <span>Connect</span>
-                                            </div>
-                                        </div>
+                    <div class="pricing-slider">
+                        <div>
+                            <div class="pricing-box">
+                                <div class="pricing-details">
+                                    <div class="pricing-icon color-2">
+                                        <svg class="pricing-svg">
+                                            <use xlink:href="assets/svg/icons.svg#home-heart"></use>
+                                        </svg>
                                     </div>
-                                    <div class="agent-content">
-                                        <h3><a href="agency-profile.html">Corsair Real Estate</a></h3>
-                                        <p class="font-roboto">Real estate Agency</p>
-                                        <ul class="agent-contact">
-                                            <li>
-                                                <i class="fas fa-phone-alt"></i> 
-                                                <span class="phone-number">+91 426015400</span>
-                                                <span class="character">+91 42601****</span>
-                                                <span class="label label-light label-flat color-2">
-                                                    show    
-                                                    <span>hide</span>
-                                                </span>
-                                            </li>
-                                            <li><i class="fas fa-envelope"></i> corsair@gmail.com</li>
-                                            <li><i class="fas fa-fax"></i> 247 054 787</li>
-                                        </ul>
-                                        <a href="agency-profile.html">View profile <i class="fas fa-arrow-right"></i></a>
+                                    <h3>Personal</h3>
+                                    <p class="font-roboto">Elegant retreat in a quiet Coral Gables setting. This home provides opening…</p>
+                                </div>
+                                <ul>
+                                    <li>Entertaining spaces with kitchen opening.</li>
+                                    <li>Elegant retreat in a quiet setting.</li>
+                                    <li>Apartment An individual multi-unit building.</li>
+                                </ul>
+                                <div class="price">
+                                    <span class="label label-light label-flat color-2">Month</span>
+                                    <h4>$120.00</h4>
+                                    <span class="light-text">Per</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="pricing-box">
+                                <div class="pricing-details">
+                                    <div class="pricing-icon color-2">
+                                        <svg class="pricing-svg">
+                                            <use xlink:href="assets/svg/icons.svg#home-lock"></use>
+                                        </svg>
+                                    </div>
+                                    <h3>Professional</h3>
+                                    <p class="font-roboto">This home provides opening. Elegant retreat in a quiet Coral Gables setting.</p>
+                                </div>
+                                <ul>
+                                    <li>Entertaining spaces with kitchen opening.</li>
+                                    <li>Elegant retreat in a quiet setting.</li>
+                                    <li>Apartment An individual multi-unit building.</li>
+                                </ul>
+                                <div class="price">
+                                    <span class="label label-light label-flat color-2">Month</span>
+                                    <h4>$310.00</h4>
+                                    <span class="light-text">Per</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="pricing-box">
+                                <div class="pricing-details">
+                                    <div class="pricing-icon color-2">
+                                        <svg class="pricing-svg">
+                                            <use xlink:href="assets/svg/icons.svg#homes"></use>
+                                        </svg>
+                                    </div>
+                                    <h3>Business</h3>
+                                    <p class="font-roboto">Elegant retreat in a quiet Coral Gables setting. This home provides opening…</p>
+                                </div>
+                                <ul>
+                                    <li>Entertaining spaces with kitchen opening.</li>
+                                    <li>Elegant retreat in a quiet setting.</li>
+                                    <li>Apartment An individual multi-unit building.</li>
+                                </ul>
+                                <div class="price">
+                                    <span class="label label-light label-flat color-2">Month</span>
+                                    <h4>$430.00</h4>
+                                    <span class="light-text">Per</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="pricing-box">
+                                <div class="pricing-details">
+                                    <div class="pricing-icon color-2">
+                                        <svg class="pricing-svg">
+                                            <use xlink:href="assets/svg/icons.svg#home-lock"></use>
+                                        </svg>
+                                    </div>
+                                    <h3>Professional</h3>
+                                    <p class="font-roboto">This home provides opening. Elegant retreat in a quiet Coral Gables setting.</p>
+                                </div>
+                                <ul>
+                                    <li>Entertaining spaces with kitchen opening.</li>
+                                    <li>Elegant retreat in a quiet setting.</li>
+                                    <li>Apartment An individual multi-unit building.</li>
+                                </ul>
+                                <div class="price">
+                                    <span class="label label-light label-flat color-2">Month</span>
+                                    <h4>$310.00</h4>
+                                    <span class="light-text">Per</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- pricing plan section end -->
+
+    <!--our new offer section start -->
+    <section class="offer-section banner-section layout2-bg slick-between offer-inner">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="title-2 text-white">
+                        <h2>Our New Offer</h2>
+                        <p>Discover New York’s best things to do, restaurants, theatre, nightlife and more</p>
+                    </div>
+                    <div class="offer-slider">
+                        <div>
+                            <div class="offer-wrapper">
+                                <div class="media">
+                                    <div class="offer-icon">
+                                        <img src="{{ url_for('static', filename='assets/images/others/icon-1.png') }}" alt="">
+                                    </div>
+                                    <div class="media-body">
+                                        <h6>Sheltos</h6>
+                                        <h3>Are you looking for Flat?</h3>
+                                        <p>5 offers on day, trusted by a community of thousands of users. 15 new offers every day.</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-md-6 wow fadeInUp">
-                                <div class="property-box">
-                                    <div class="agent-image">
-                                        <div>
-                                            <img src="{{ url_for('static', filename='assets/images/agency/2.png') }}" class="bg-img" alt="">
-                                            <span class="label label-shadow">3 properties</span>
-                                            <div class="agent-overlay"></div>
-                                            <div class="overlay-content">
-                                                <ul>
-                                                    <li><a href="https://accounts.google.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-1.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://twitter.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-2.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://www.facebook.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-3.png') }}" alt=""></a>
-                                                    </li>
-                                                </ul>
-                                                <span>Connect</span>
-                                            </div>
-                                        </div>
+                        </div>
+                        <div>
+                            <div class="offer-wrapper">
+                                <div class="media">
+                                    <div class="offer-icon">
+                                        <img src="{{ url_for('static', filename='assets/images/others/icon-2.png') }}" alt="">
                                     </div>
-                                    <div class="agent-content">
-                                        <h3><a href="agency-profile.html">Broadleaf Homes</a></h3>
-                                        <p class="font-roboto">Real estate Agency</p>
-                                        <ul class="agent-contact">
-                                            <li>
-                                                <i class="fas fa-phone-alt"></i> 
-                                                <span class="phone-number">+91 5470087201</span>
-                                                <span class="character">+91 547008****</span>
-                                                <span class="label label-light label-flat color-2">
-                                                    show    
-                                                    <span>hide</span>
-                                                </span>
-                                            </li>
-                                            <li><i class="fas fa-envelope"></i> broadleaf@gmail.in</li>
-                                            <li><i class="fas fa-fax"></i> 248 200 325</li>
-                                        </ul>
-                                        <a href="agency-profile.html">View profile <i class="fas fa-arrow-right"></i></a>
+                                    <div class="media-body">
+                                        <h6>Sheltos</h6>
+                                        <h3>Looking for the new home?</h3>
+                                        <p>10 new offers every day. 350 offers on site, trusted
+                                            by a community of thousands of users.</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-md-6 wow fadeInUp">
-                                <div class="property-box">
-                                    <div class="agent-image">
-                                        <div>
-                                            <img src="{{ url_for('static', filename='assets/images/agency/3.png') }}" class="bg-img" alt="">
-                                            <span class="label label-shadow">6 properties</span>
-                                            <div class="agent-overlay"></div>
-                                            <div class="overlay-content">
-                                                <ul>
-                                                    <li><a href="https://accounts.google.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-1.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://twitter.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-2.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://www.facebook.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-3.png') }}" alt=""></a>
-                                                    </li>
-                                                </ul>
-                                                <span>Connect</span>
-                                            </div>
-                                        </div>
+                        </div>
+                        <div>
+                            <div class="offer-wrapper">
+                                <div class="media">
+                                    <div class="offer-icon">
+                                        <img src="{{ url_for('static', filename='assets/images/others/icon-1.png') }}" alt="">
                                     </div>
-                                    <div class="agent-content">
-                                        <h3><a href="agency-profile.html">Silverbell Realty</a></h3>
-                                        <p class="font-roboto">Real estate Agency</p>
-                                        <ul class="agent-contact">
-                                            <li>
-                                                <i class="fas fa-phone-alt"></i> 
-                                                <span class="phone-number">+91 2714203587</span>
-                                                <span class="character">+91 271420****</span>
-                                                <span class="label label-light label-flat color-2">
-                                                    show    
-                                                    <span>hide</span>
-                                                </span>
-                                            </li>
-                                            <li><i class="fas fa-envelope"></i> silver@gmail.in</li>
-                                            <li><i class="fas fa-fax"></i> 571 241 925</li>
-                                        </ul>
-                                        <a href="agency-profile.html">View profile <i class="fas fa-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6 wow fadeInUp">
-                                <div class="property-box">
-                                    <div class="agent-image">
-                                        <div>
-                                            <img src="{{ url_for('static', filename='assets/images/agency/4.png') }}" class="bg-img" alt="">
-                                            <span class="label label-shadow">1 properties</span>
-                                            <div class="agent-overlay"></div>
-                                            <div class="overlay-content">
-                                                <ul>
-                                                    <li><a href="https://accounts.google.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-1.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://twitter.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-2.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://www.facebook.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-3.png') }}" alt=""></a>
-                                                    </li>
-                                                </ul>
-                                                <span>Connect</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="agent-content">
-                                        <h3><a href="agency-profile.html">Catbird Estates</a></h3>
-                                        <p class="font-roboto">Marketing Agency</p>
-                                        <ul class="agent-contact">
-                                            <li>
-                                                <i class="fas fa-phone-alt"></i> 
-                                                <span class="phone-number">+91 3178405278</span>
-                                                <span class="character">+91 317840****</span>
-                                                <span class="label label-light label-flat color-2">
-                                                    show    
-                                                    <span>hide</span>
-                                                </span>
-                                            </li>
-                                            <li><i class="fas fa-envelope"></i> catbird@gmail.in</li>
-                                            <li><i class="fas fa-fax"></i> 287 845 317</li>
-                                        </ul>
-                                        <a href="agency-profile.html">View profile <i class="fas fa-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6 wow fadeInUp">
-                                <div class="property-box">
-                                    <div class="agent-image">
-                                        <div>
-                                            <img src="{{ url_for('static', filename='assets/images/agency/5.png') }}" class="bg-img" alt="">
-                                            <span class="label label-shadow">4 properties</span>
-                                            <div class="agent-overlay"></div>
-                                            <div class="overlay-content">
-                                                <ul>
-                                                    <li><a href="https://accounts.google.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-1.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://twitter.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-2.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://www.facebook.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-3.png') }}" alt=""></a>
-                                                    </li>
-                                                </ul>
-                                                <span>Connect</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="agent-content">
-                                        <h3><a href="agency-profile.html">The Viola Group</a></h3>
-                                        <p class="font-roboto">Real estate Agency</p>
-                                        <ul class="agent-contact">
-                                            <li>
-                                                <i class="fas fa-phone-alt"></i> 
-                                                <span class="phone-number">+91 2197207878</span>
-                                                <span class="character">+91 219720****</span>
-                                                <span class="label label-light label-flat color-2">
-                                                    show    
-                                                    <span>hide</span>
-                                                </span>
-                                            </li>
-                                            <li><i class="fas fa-envelope"></i> viola@gmail.com</li>
-                                            <li><i class="fas fa-fax"></i> 967 218 674</li>
-                                        </ul>
-                                        <a href="agency-profile.html">View profile <i class="fas fa-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6 wow fadeInUp">
-                                <div class="property-box">
-                                    <div class="agent-image">
-                                        <div>
-                                            <img src="{{ url_for('static', filename='assets/images/agency/6.png') }}" class="bg-img" alt="">
-                                            <span class="label label-shadow">2 properties</span>
-                                            <div class="agent-overlay"></div>
-                                            <div class="overlay-content">
-                                                <ul>
-                                                    <li><a href="https://accounts.google.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-1.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://twitter.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-2.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://www.facebook.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-3.png') }}" alt=""></a>
-                                                    </li>
-                                                </ul>
-                                                <span>Connect</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="agent-content">
-                                        <h3><a href="agency-profile.html">Rise Real Estate</a></h3>
-                                        <p class="font-roboto">Marketing Agency</p>
-                                        <ul class="agent-contact">
-                                            <li>
-                                                <i class="fas fa-phone-alt"></i> 
-                                                <span class="phone-number">+91 2197207878</span>
-                                                <span class="character">+91 219720****</span>
-                                                <span class="label label-light label-flat color-2">
-                                                    show    
-                                                    <span>hide</span>
-                                                </span>
-                                            </li>
-                                            <li><i class="fas fa-envelope"></i> rise@gmail.com</li>
-                                            <li><i class="fas fa-fax"></i> 967 218 674</li>
-                                        </ul>
-                                        <a href="agency-profile.html">View profile <i class="fas fa-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6 wow fadeInUp">
-                                <div class="property-box">
-                                    <div class="agent-image">
-                                        <div>
-                                            <img src="{{ url_for('static', filename='assets/images/agency/2.png') }}" class="bg-img" alt="">
-                                            <span class="label label-shadow">2 properties</span>
-                                            <div class="agent-overlay"></div>
-                                            <div class="overlay-content">
-                                                <ul>
-                                                    <li><a href="https://accounts.google.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-1.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://twitter.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-2.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://www.facebook.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-3.png') }}" alt=""></a>
-                                                    </li>
-                                                </ul>
-                                                <span>Connect</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="agent-content">
-                                        <h3><a href="agency-profile.html">Corsair Real Estate</a></h3>
-                                        <p class="font-roboto">Real estate Agency</p>
-                                        <ul class="agent-contact">
-                                            <li>
-                                                <i class="fas fa-phone-alt"></i> 
-                                                <span class="phone-number">+91 426015400</span>
-                                                <span class="character">+91 42601****</span>
-                                                <span class="label label-light label-flat color-2">
-                                                    show    
-                                                    <span>hide</span>
-                                                </span>
-                                            </li>
-                                            <li><i class="fas fa-envelope"></i> corsair@gmail.com</li>
-                                            <li><i class="fas fa-fax"></i> 247 054 787</li>
-                                        </ul>
-                                        <a href="agency-profile.html">View profile <i class="fas fa-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6 wow fadeInUp">
-                                <div class="property-box">
-                                    <div class="agent-image">
-                                        <div>
-                                            <img src="{{ url_for('static', filename='assets/images/agency/3.png') }}" class="bg-img" alt="">
-                                            <span class="label label-shadow">3 properties</span>
-                                            <div class="agent-overlay"></div>
-                                            <div class="overlay-content">
-                                                <ul>
-                                                    <li><a href="https://accounts.google.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-1.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://twitter.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-2.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://www.facebook.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-3.png') }}" alt=""></a>
-                                                    </li>
-                                                </ul>
-                                                <span>Connect</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="agent-content">
-                                        <h3><a href="agency-profile.html">Broadleaf Homes</a></h3>
-                                        <p class="font-roboto">Real estate Agency</p>
-                                        <ul class="agent-contact">
-                                            <li>
-                                                <i class="fas fa-phone-alt"></i> 
-                                                <span class="phone-number">+91 5470087201</span>
-                                                <span class="character">+91 547008****</span>
-                                                <span class="label label-light label-flat color-2">
-                                                    show    
-                                                    <span>hide</span>
-                                                </span>
-                                            </li>
-                                            <li><i class="fas fa-envelope"></i> broadleaf@gmail.in</li>
-                                            <li><i class="fas fa-fax"></i> 248 200 325</li>
-                                        </ul>
-                                        <a href="agency-profile.html">View profile <i class="fas fa-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6 wow fadeInUp">
-                                <div class="property-box">
-                                    <div class="agent-image">
-                                        <div>
-                                            <img src="{{ url_for('static', filename='assets/images/agency/1.png') }}" class="bg-img" alt="">
-                                            <span class="label label-shadow">6 properties</span>
-                                            <div class="agent-overlay"></div>
-                                            <div class="overlay-content">
-                                                <ul>
-                                                    <li><a href="https://accounts.google.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-1.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://twitter.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-2.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://www.facebook.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-3.png') }}" alt=""></a>
-                                                    </li>
-                                                </ul>
-                                                <span>Connect</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="agent-content">
-                                        <h3><a href="agency-profile.html">Catbird Estates</a></h3>
-                                        <p class="font-roboto">Real estate Agency</p>
-                                        <ul class="agent-contact">
-                                            <li>
-                                                <i class="fas fa-phone-alt"></i> 
-                                                <span class="phone-number">+91 2714203587</span>
-                                                <span class="character">+91 271420****</span>
-                                                <span class="label label-light label-flat color-2">
-                                                    show    
-                                                    <span>hide</span>
-                                                </span>
-                                            </li>
-                                            <li><i class="fas fa-envelope"></i> catbird@gmail.in</li>
-                                            <li><i class="fas fa-fax"></i> 571 241 925</li>
-                                        </ul>
-                                        <a href="agency-profile.html">View profile <i class="fas fa-arrow-right"></i></a>
+                                    <div class="media-body">
+                                        <h6>Sheltos</h6>
+                                        <h3>Looking for the new Office?</h3>
+                                        <p>350 offers on day, trusted by a community of thousands of users. 15 new offers every day.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-4">
-                    <div class="left-sidebar single-sidebar sticky-cls">
-                        <div class="filter-cards">
-                            <div class="advance-card">
-                                <h6>Request exploration</h6>
-                                <div class="category-property">
-                                    <form>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Your Name" required="">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Email Address" required="">
-                                        </div>
-                                        <div class="form-group">
-                                            <input placeholder="phone number" class="form-control" name="mobnumber" id="tbNumbers" oninput="maxLengthCheck(this)" type="tel" onkeypress="javascript:return isNumber(event)" maxlength="9" required="">
-                                        </div>
-                                        <div class="form-group">
-                                            <textarea placeholder="Message" class="form-control" rows="3"></textarea>
-                                        </div>
-                                        <button type="submit" onclick="document.location='user-listing.html'" class="btn btn-gradient color-2 btn-block btn-pill">Submit
-                                            Request</button>
-                                    </form>
+            </div>
+        </div>
+    </section>
+    <!--our new offer section end -->
+
+    <!--property of the day section start -->
+    <section class="banner-section new-property pricing-property">
+        <div class="container">
+            <div class="row ratio_landscape feature-section">
+                <div class="col">
+                    <div class="title-2">
+                        <h2>Property of the day</h2>
+                        <p>Discover New York’s best things to do, restaurants, theatre, nightlife and more</p>
+                    </div>
+                    <div class="feature-wrap">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-5">
+                                <div class="feature-image property-slider mb-0">
+                                    <a href="javascript:void(0)">
+                                        <img src="{{ url_for('static', filename='assets/images/1.jpg') }}" class="bg-img" alt="">
+                                        
+                                    </a>
+                                    <a href="javascript:void(0)">
+                                        <img src="{{ url_for('static', filename='assets/images/2.jpg') }}" class="bg-img" alt="">
+                                        
+                                    </a>
+                                    <a href="javascript:void(0)">
+                                        <img src="{{ url_for('static', filename='assets/images/4.jpg') }}" class="bg-img" alt="">
+                                        
+                                    </a>
+                                    <a href="javascript:void(0)">
+                                        <img src="{{ url_for('static', filename='assets/images/3.jpg') }}" class="bg-img" alt="">
+                                    </a>
                                 </div>
                             </div>
-                           <div class="advance-card feature-card">
-                                <h6>Featured</h6>
-                                <div class="feature-slider">
-                                    <div>
-                                        <img src="{{ url_for('static', filename='assets/images/property/4.jpg') }}" class="bg-img" alt="">
-                                        <div class="bottom-feature">
-                                            <h5>Neverland</h5>
-                                            <h6>$13,000 <small>/ start from</small></h6>
-                                        </div>
+                            <div class="col-xl-6 col-lg-7">
+                                <div class="feature-content">
+                                    <div class="details">
+                                        <h3><a href="single-property-8.html"><span>Home in</span> California Avenue </a></h3>
+                                        <span>Merrick Way, Miami, FL United Kingdom</span>
+                                        <p class="font-roboto">Elegant retreat in a quiet Coral Gables setting. This home provides wonderful entertaining spaces with a chef
+                                        kitchen opening Elegant retreat in a quiet Coral Gables setting.</p>
                                     </div>
-                                    <div>
-                                        <img src="{{ url_for('static', filename='assets/images/property/16.jpg') }}" class="bg-img" alt="">
-                                        <div class="bottom-feature">
-                                            <h5>Neverland</h5>
-                                            <h6>$13,000 <small>/ start from</small></h6>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <img src="{{ url_for('static', filename='assets/images/property/14.jpg') }}" class="bg-img" alt="">
-                                        <div class="bottom-feature">
-                                            <h5>Neverland</h5>
-                                            <h6>$13,000 <small>/ start from</small></h6>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="labels-left">
-                                    <span class="label label-success">featured</span>
-                                </div>
-                            </div>
-                            <div class="advance-card">
-                                <h6>Recently Added</h6>
-                                <div class="recent-property">
-                                    <ul>
+                                    <ul class="detail-list">
                                         <li>
-                                            <div class="media">
-                                                <img src="{{ url_for('static', filename='assets/images/property/9.jpg') }}" class="img-fluid" alt="">
-                                                <div class="media-body">
-                                                    <h5>Sea Breezes</h5>
-                                                    <span>$9800 / <span>Month</span></span>
-                                                </div>
+                                            <div class="d-flex">
+                                                <span class="label label-light color-2 label-lg">
+                                                    <img src="{{ url_for('static', filename='assets/images/icon/bed.png') }}" class="img-fluid img-icon" alt="">
+                                                </span>
+                                                <h6>Bedroom</h6>
                                             </div>
                                         </li>
                                         <li>
-                                            <div class="media">
-                                                <img src="{{ url_for('static', filename='assets/images/property/10.jpg') }}" class="img-fluid" alt="">
-                                                <div class="media-body">
-                                                    <h5>Orchard House</h5>
-                                                    <span>$7500 / <span>Month</span></span>
-                                                </div>
+                                            <div class="d-flex">
+                                                <span class="label label-light color-2 label-lg">
+                                                    <img src="{{ url_for('static', filename='assets/images/icon/bathroom.png') }}" class="img-fluid img-icon" alt="">
+                                                </span>
+                                                <h6>Bathroom</h6>
                                             </div>
                                         </li>
                                         <li>
-                                            <div class="media">
-                                                <img src="{{ url_for('static', filename='assets/images/property/11.jpg') }}" class="img-fluid" alt="">
-                                                <div class="media-body">
-                                                    <h5>Neverland</h5>
-                                                    <span>$5000 / <span>Month</span></span>
-                                                </div>
-                                            </div>
+                                            <span class="label label-light color-2 label-lg">9532 Sq Ft</span>
                                         </li>
+                                    </ul>
+                                    <ul class="feature-price">
+                                        <li>
+                                            <h3>$48,596.00</h3>
+                                            <h6>Home For Sale</h6>
+                                        </li>
+                                        <li><a href="single-property-1.html" class="btn btn-gradient btn-pill color-2 btn-lg">View property</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -1052,7 +791,110 @@
             </div>
         </div>
     </section>
-    <!-- agent grid section end -->
+    <!--property of the day section end -->
+
+    <!-- parallax banner section start -->
+    <section class="banner-section layout2-bg parallax-image">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="banner-2 ratio2_3">
+                        <div class="row">
+                            <div class="col-xl-7 col-lg-6">
+                                <div class="mobile-image bg-size d-lg-block d-none">
+                                    <img src="{{ url_for('static', filename='assets/images/mobile-bg.png') }}" alt="" class="bg-img">
+                                </div>
+                            </div>
+                            <div class="col-xl-5 col-lg-6 offset-lg-0 col-md-7 offset-md-5">
+                                <div class="banner-right">
+                                    <h6>free Download</h6>
+                                    <h2>Take your home search
+                                        everywhere You go....</h2>
+                                    <p class="font-roboto">Search anytime, anywhere with ZipRealty's award-winning real
+                                        estate
+                                        app for iPhone, iPad and Android. See what's for sale around you and
+                                        instantly request to tour homes you like.</p>
+                                    <div class="button-banner">
+                                        <a href="https://play.google.com/" class="btn btn-gradient btn-pill color-2"><img src="{{ url_for('static', filename='assets/images/playstore.png') }}" alt="" class="me-1"> Play Store</a>
+                                        <a href="https://appstoreconnect.apple.com" class="btn btn-light-bg btn-pill color-2"> <img src="{{ url_for('static', filename='assets/images/app-icon.png') }}" alt="" class="me-1"><span> App
+                                                Store</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- parallax banner section end -->
+
+    <!-- subscribe section start -->
+    <section class="subscribe-section">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="video-details">
+                        <span class="label label-light label-flat color-2">#Realestate</span>
+                        <h2>Stay Up to Date</h2>
+                        <p class="font-roboto">Elegant retreat in a quiet Coral Gables setting. This home provides wonderful entertaining spaces with a chef
+                            kitchen opening Elegant retreat in a quiet Coral Gables setting.</p>
+                       <form>
+                            <div class="form-group color-2">
+                                <input type="email" class="form-control" placeholder="Enter Your Email Address" required="">
+                            </div>
+                            <button type="submit" class="btn btn-gradient color-2 btn-lg">Subscribe Now</button>
+                       </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- subscribe section end -->
+
+
+        <!-- brand 3 start -->
+    <section class="small-section bg-light-blue arrow-gradient">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="slide-3 brand-slider">
+                        <div>
+                            <a href="javascript:void(0)" class="logo-box">
+                                <img src="{{ url_for('static', filename='assets/images/brand/12.png') }}" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="javascript:void(0)" class="logo-box">
+                                <img src="{{ url_for('static', filename='assets/images/brand/13.png') }}" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="javascript:void(0)" class="logo-box">
+                                <img src="{{ url_for('static', filename='assets/images/brand/14.png') }}" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="javascript:void(0)" class="logo-box">
+                                <img src="{{ url_for('static', filename='assets/images/brand/15.png') }}" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="javascript:void(0)" class="logo-box">
+                                <img src="{{ url_for('static', filename='assets/images/brand/16.png') }}" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="javascript:void(0)" class="logo-box">
+                                <img src="{{ url_for('static', filename='assets/images/brand/13.png') }}" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- brand 3 end -->
 
     <!-- footer start -->
     <footer>
@@ -1335,17 +1177,17 @@
     <script src="{{ url_for('static', filename='assets/js/slick-animation.min.js') }}"></script>
     <script src="{{ url_for('static', filename='assets/js/custom-slick.js') }}"></script>
 
-    <!--grid js -->
-    <script src="{{ url_for('static', filename='assets/js/grid-list.js') }}"></script>
-
     <!-- Template js-->
     <script src="{{ url_for('static', filename='assets/js/script.js') }}"></script>
 
     <!-- Customizer js-->
     <script src="{{ url_for('static', filename='assets/js/customizer.js') }}"></script>
 
+    <!-- wow js-->
+    <script src="{{ url_for('static', filename='assets/js/wow.min.js') }}"></script>
+
     <!-- Color-picker js-->
-    <script src="{{ url_for('static', filename='assets/js/color/single-property.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/color/template-color.js') }}"></script>
 
 </body>
 

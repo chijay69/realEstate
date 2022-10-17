@@ -19,8 +19,7 @@ def secret():
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(email=form.email.data, first_name=form.firstname.data, last_name=form.lastname.data, password=form.password.data,
-                    phone=form.phone.data, country=form.country.data)
+        user = User(email=form.email.data, first_name=form.firstname.data, last_name=form.lastname.data, password=form.password.data)
         db.session.add(user)
         db.session.commit()
         flash('Registration Successful!')
@@ -74,7 +73,7 @@ def resend_confirmation():
 
 
 @auth.route('/reset', methods=["GET", "POST"])
-def forgot():
+def reset():
     if current_user.is_authenticated:
         flash('Log out to reset password')
         return redirect(url_for('main.index'))
@@ -87,7 +86,7 @@ def forgot():
             db.session.commit()
             flash('Password Reset Complete, login.')
             return redirect(url_for('auth.login'))
-    return render_template('auth/reset.html', form=form)
+    return render_template('auth/forgot_password.html', form=form)
 
 
 # @auth.route('/reset', methods=["GET", "POST"])
@@ -115,7 +114,7 @@ def reset_password(token):
     user = User.verify_reset_token(token)
     if user is None:
         flash('Expired or invalid token', 'warning')
-        return redirect(url_for('auth.forgot'))
+        return redirect(url_for('auth.reset'))
     form = ResetPasswordForm()
     if form.validate_on_submit():
         password = form.password.data

@@ -5,6 +5,40 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 from app import db, login_manager
 
+import enum
+
+
+class PropertyStatusEnum(enum.Enum):
+    rent = 'rent'
+    sale = 'sale'
+
+
+class Property(db.Model):
+    __tablename__ = 'properties'
+    id = db.Column(db.Integer, primary_key=True)
+    property_type = db.Column(db.String(64), index=True)
+    property_status = employment_status = db.Column(db.Enum(PropertyStatusEnum), default=PropertyStatusEnum.rent, nullable=False),
+    property_price = db.Column(db.Float)
+    max_rooms = db.Column(db.Integer)
+    beds = db.Column(db.Integer)
+    area = db.Column(db.String(64))
+    agency = db.Column(db.String(64))
+    price = db.Column(db.Float)
+    description = db.Column(db.Text)
+    address = db.Column(db.String(128))
+    zip_code = db.Column(db.Integer)
+    country = db.Column(db.String(64))
+    city = db.Column(db.String(64))
+    landmark = db.Column(db.Text)
+    gallery = db.Column(db.String(64))
+    video = db.Column(db.String(64))
+    emergency_exit = db.Column(db.Boolean)
+    cctv = db.Column(db.Boolean)
+    wifi = db.Column(db.Boolean)
+    parking = db.Column(db.Boolean)
+    ac = db.Column(db.Boolean)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
 
 class User(UserMixin, db.Model):
     __tablename__ = 'users'
@@ -13,20 +47,16 @@ class User(UserMixin, db.Model):
     last_name = db.Column(db.String(64), index=True)
     email = db.Column(db.String(64), unique=True, index=True)
     password_hash = db.Column(db.String(128))
-    phone = db.Column(db.BigInteger)
-    country = db.Column(db.String(64))
-    btc_balance = db.Column(db.Float, default=None)
-    cash_balance = db.Column(db.Float, default=None)
-    level = db.Column(db.String(64))
+    properties = db.relationship('Property', backref='user', lazy='dynamic')
 
-    def __init__(self, **kwargs):
-        super(User, self).__init__(**kwargs)
-        if self.btc_balance is None:
-            self.btc_balance = 0.0
-        if self.cash_balance is None:
-            self.cash_balance = 0.0
-        if self.level is None:
-            self.level = 'Starter'
+    # def __init__(self, **kwargs):
+    #     super(User, self).__init__(**kwargs)
+    #     if self.btc_balance is None:
+    #         self.btc_balance = 0.0
+    #     if self.cash_balance is None:
+    #         self.cash_balance = 0.0
+    #     if self.level is None:
+    #         self.level = 'Starter'
 
     @property
     def password(self):
@@ -67,3 +97,6 @@ class User(UserMixin, db.Model):
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
+
+
+

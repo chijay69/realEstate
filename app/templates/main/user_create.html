@@ -5,11 +5,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sheltos - Agency grid page">
+    <meta name="description" content="Sheltos - User listing page">
     <meta name="keywords" content="sheltos">
     <meta name="author" content="sheltos">
     <link rel="icon" href="{{ url_for('static', filename='assets/images/favicon.png') }}" type="image/x-icon">
-    <title>Agency</title>
+    <title>User listing page</title>
 
    <!--Google font-->
     <link href="{{ url_for('static', filename='css?family=Montserrat:400,400i,500,500i,600,600i,700,700i,800,800i') }}" rel="stylesheet">
@@ -535,11 +535,11 @@
         <div class="container">
             <div class="breadcrumb-content">
                 <div>
-                    <h2>Agency Grid</h2>
+                    <h2>Dashboard</h2>
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Agency Grid</li>
+                            <li class="breadcrumb-item active" aria-current="page">Create property</li>
                         </ol>
                     </nav>
                 </div>
@@ -548,511 +548,232 @@
     </section>
     <!-- breadcrumb end -->
 
-    <!-- agent grid section start -->
-    <section class="agent-section property-section">
-        <div class="container">
-            <div class="row ratio2_3">
-                <div class="col-xl-9 col-lg-8 property-grid-3 agent-grids">
-                    <div class="filter-panel">
-                        <div class="top-panel">
-                            <div>
-                                <h2>Agency Listing</h2>
-                                <span class="show-result">Showing <span>1-15 of 69</span> Listings</span>
-                            </div>
-                            <ul class="grid-list-filter d-flex">
-                                <li>
-                                    <div class="dropdown">
-                                        <span class="dropdown-toggle font-rubik" data-bs-toggle="dropdown"><span>Sort by
-                                                Newest</span> <i class="fas fa-angle-down ms-lg-3 ms-2"></i></span>
-                                        <div class="dropdown-menu text-start">
-                                            <a class="dropdown-item" href="javascript:void(0)">Sort by Newest</a>
-                                            <a class="dropdown-item" href="javascript:void(0)">Sort by Oldest</a>
-                                            <a class="dropdown-item" href="javascript:void(0)">Sory by featured</a>
-                                            <a class="dropdown-item" href="javascript:void(0)">Sort by price (Low to
-                                                high)</a>
+    <!-- user dashboard section start -->
+    <section class="user-dashboard small-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="sidebar-user sticky-cls">
+                            <div class="user-profile">
+                                <div class="media">
+                                    <div class="change-pic">
+                                        <img src="{{ url_for('static', filename='assets/images/avatar/3.jpg') }}" class="img-fluid update_img" alt="">
+                                        <div class="change-hover">
+                                            <button type="button" class="btn"><i data-feather="camera"></i></button>
+                                            <input class="updateimg" type="file" name="img" onchange="readURL(this,0)">
                                         </div>
                                     </div>
-                                </li>
-                                <li class="collection-grid-view">
-                                    <ul>
-                                        <li><img src="{{ url_for('static', filename='assets/images/icon/2.png') }}" alt="" class="product-2-layout-view"></li>
-                                        <li><img src="{{ url_for('static', filename='assets/images/icon/3.png') }}" alt="" class="product-3-layout-view"></li>
-                                        <li><img src="{{ url_for('static', filename='assets/images/icon/4.png') }}" alt="" class="product-4-layout-view"></li>
+                                    <div class="media-body">
+                                        <h5>Zack Lee</h5>
+                                        <h6 class="font-roboto">zackle@gmail.com</h6>
+                                        <h6 class="font-roboto mb-0">+91 846 - 547 - 210</h6>
+                                    </div>
+                                </div>
+                                <div class="connected-social">
+                                    <h6>Connect with</h6>
+                                    <ul class="agent-social">
+                                        <li><a href="https://www.facebook.com/" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="https://twitter.com/" class="twitter"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="https://account.google.com" class="google"><i class="fab fa-google"></i></a></li>
+                                        <li><a href="https://www.linkedin.com/" class="linkedin"><i class="fab fa-linkedin-in"></i></a></li>
                                     </ul>
-                                </li>
-                                <li class="grid-btn active">
-                                    <a href="javascript:void(0)" class="grid-layout-view">
-                                        <i data-feather="grid"></i>
-                                    </a>
-                                </li>
-                                <li class="list-btn">
-                                    <a href="javascript:void(0)" class="list-layout-view">
-                                        <i data-feather="list"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                    </div>
-                    <div class="property-wrapper-grid">
-                        <div class="property-2 row column-sm property-label property-grid">
-                            <div class="col-xl-4 col-md-6 wow fadeInUp">
-                                <div class="property-box">
-                                    <div class="agent-image">
-                                        <div>
-                                            <img src="{{ url_for('static', filename='assets/images/agency/1.png') }}" class="bg-img" alt="">
-                                            <span class="label label-shadow">2 properties</span>
-                                            <div class="agent-overlay"></div>
-                                            <div class="overlay-content">
-                                                <ul>
-                                                    <li><a href="https://accounts.google.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-1.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://twitter.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-2.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://www.facebook.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-3.png') }}" alt=""></a>
-                                                    </li>
-                                                </ul>
-                                                <span>Connect</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="agent-content">
-                                        <h3><a href="agency-profile.html">Corsair Real Estate</a></h3>
-                                        <p class="font-roboto">Real estate Agency</p>
-                                        <ul class="agent-contact">
-                                            <li>
-                                                <i class="fas fa-phone-alt"></i> 
-                                                <span class="phone-number">+91 426015400</span>
-                                                <span class="character">+91 42601****</span>
-                                                <span class="label label-light label-flat color-2">
-                                                    show    
-                                                    <span>hide</span>
-                                                </span>
-                                            </li>
-                                            <li><i class="fas fa-envelope"></i> corsair@gmail.com</li>
-                                            <li><i class="fas fa-fax"></i> 247 054 787</li>
-                                        </ul>
-                                        <a href="agency-profile.html">View profile <i class="fas fa-arrow-right"></i></a>
-                                    </div>
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-md-6 wow fadeInUp">
-                                <div class="property-box">
-                                    <div class="agent-image">
-                                        <div>
-                                            <img src="{{ url_for('static', filename='assets/images/agency/2.png') }}" class="bg-img" alt="">
-                                            <span class="label label-shadow">3 properties</span>
-                                            <div class="agent-overlay"></div>
-                                            <div class="overlay-content">
-                                                <ul>
-                                                    <li><a href="https://accounts.google.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-1.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://twitter.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-2.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://www.facebook.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-3.png') }}" alt=""></a>
-                                                    </li>
-                                                </ul>
-                                                <span>Connect</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="agent-content">
-                                        <h3><a href="agency-profile.html">Broadleaf Homes</a></h3>
-                                        <p class="font-roboto">Real estate Agency</p>
-                                        <ul class="agent-contact">
-                                            <li>
-                                                <i class="fas fa-phone-alt"></i> 
-                                                <span class="phone-number">+91 5470087201</span>
-                                                <span class="character">+91 547008****</span>
-                                                <span class="label label-light label-flat color-2">
-                                                    show    
-                                                    <span>hide</span>
-                                                </span>
-                                            </li>
-                                            <li><i class="fas fa-envelope"></i> broadleaf@gmail.in</li>
-                                            <li><i class="fas fa-fax"></i> 248 200 325</li>
-                                        </ul>
-                                        <a href="agency-profile.html">View profile <i class="fas fa-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6 wow fadeInUp">
-                                <div class="property-box">
-                                    <div class="agent-image">
-                                        <div>
-                                            <img src="{{ url_for('static', filename='assets/images/agency/3.png') }}" class="bg-img" alt="">
-                                            <span class="label label-shadow">6 properties</span>
-                                            <div class="agent-overlay"></div>
-                                            <div class="overlay-content">
-                                                <ul>
-                                                    <li><a href="https://accounts.google.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-1.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://twitter.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-2.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://www.facebook.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-3.png') }}" alt=""></a>
-                                                    </li>
-                                                </ul>
-                                                <span>Connect</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="agent-content">
-                                        <h3><a href="agency-profile.html">Silverbell Realty</a></h3>
-                                        <p class="font-roboto">Real estate Agency</p>
-                                        <ul class="agent-contact">
-                                            <li>
-                                                <i class="fas fa-phone-alt"></i> 
-                                                <span class="phone-number">+91 2714203587</span>
-                                                <span class="character">+91 271420****</span>
-                                                <span class="label label-light label-flat color-2">
-                                                    show    
-                                                    <span>hide</span>
-                                                </span>
-                                            </li>
-                                            <li><i class="fas fa-envelope"></i> silver@gmail.in</li>
-                                            <li><i class="fas fa-fax"></i> 571 241 925</li>
-                                        </ul>
-                                        <a href="agency-profile.html">View profile <i class="fas fa-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6 wow fadeInUp">
-                                <div class="property-box">
-                                    <div class="agent-image">
-                                        <div>
-                                            <img src="{{ url_for('static', filename='assets/images/agency/4.png') }}" class="bg-img" alt="">
-                                            <span class="label label-shadow">1 properties</span>
-                                            <div class="agent-overlay"></div>
-                                            <div class="overlay-content">
-                                                <ul>
-                                                    <li><a href="https://accounts.google.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-1.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://twitter.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-2.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://www.facebook.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-3.png') }}" alt=""></a>
-                                                    </li>
-                                                </ul>
-                                                <span>Connect</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="agent-content">
-                                        <h3><a href="agency-profile.html">Catbird Estates</a></h3>
-                                        <p class="font-roboto">Marketing Agency</p>
-                                        <ul class="agent-contact">
-                                            <li>
-                                                <i class="fas fa-phone-alt"></i> 
-                                                <span class="phone-number">+91 3178405278</span>
-                                                <span class="character">+91 317840****</span>
-                                                <span class="label label-light label-flat color-2">
-                                                    show    
-                                                    <span>hide</span>
-                                                </span>
-                                            </li>
-                                            <li><i class="fas fa-envelope"></i> catbird@gmail.in</li>
-                                            <li><i class="fas fa-fax"></i> 287 845 317</li>
-                                        </ul>
-                                        <a href="agency-profile.html">View profile <i class="fas fa-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6 wow fadeInUp">
-                                <div class="property-box">
-                                    <div class="agent-image">
-                                        <div>
-                                            <img src="{{ url_for('static', filename='assets/images/agency/5.png') }}" class="bg-img" alt="">
-                                            <span class="label label-shadow">4 properties</span>
-                                            <div class="agent-overlay"></div>
-                                            <div class="overlay-content">
-                                                <ul>
-                                                    <li><a href="https://accounts.google.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-1.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://twitter.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-2.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://www.facebook.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-3.png') }}" alt=""></a>
-                                                    </li>
-                                                </ul>
-                                                <span>Connect</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="agent-content">
-                                        <h3><a href="agency-profile.html">The Viola Group</a></h3>
-                                        <p class="font-roboto">Real estate Agency</p>
-                                        <ul class="agent-contact">
-                                            <li>
-                                                <i class="fas fa-phone-alt"></i> 
-                                                <span class="phone-number">+91 2197207878</span>
-                                                <span class="character">+91 219720****</span>
-                                                <span class="label label-light label-flat color-2">
-                                                    show    
-                                                    <span>hide</span>
-                                                </span>
-                                            </li>
-                                            <li><i class="fas fa-envelope"></i> viola@gmail.com</li>
-                                            <li><i class="fas fa-fax"></i> 967 218 674</li>
-                                        </ul>
-                                        <a href="agency-profile.html">View profile <i class="fas fa-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6 wow fadeInUp">
-                                <div class="property-box">
-                                    <div class="agent-image">
-                                        <div>
-                                            <img src="{{ url_for('static', filename='assets/images/agency/6.png') }}" class="bg-img" alt="">
-                                            <span class="label label-shadow">2 properties</span>
-                                            <div class="agent-overlay"></div>
-                                            <div class="overlay-content">
-                                                <ul>
-                                                    <li><a href="https://accounts.google.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-1.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://twitter.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-2.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://www.facebook.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-3.png') }}" alt=""></a>
-                                                    </li>
-                                                </ul>
-                                                <span>Connect</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="agent-content">
-                                        <h3><a href="agency-profile.html">Rise Real Estate</a></h3>
-                                        <p class="font-roboto">Marketing Agency</p>
-                                        <ul class="agent-contact">
-                                            <li>
-                                                <i class="fas fa-phone-alt"></i> 
-                                                <span class="phone-number">+91 2197207878</span>
-                                                <span class="character">+91 219720****</span>
-                                                <span class="label label-light label-flat color-2">
-                                                    show    
-                                                    <span>hide</span>
-                                                </span>
-                                            </li>
-                                            <li><i class="fas fa-envelope"></i> rise@gmail.com</li>
-                                            <li><i class="fas fa-fax"></i> 967 218 674</li>
-                                        </ul>
-                                        <a href="agency-profile.html">View profile <i class="fas fa-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6 wow fadeInUp">
-                                <div class="property-box">
-                                    <div class="agent-image">
-                                        <div>
-                                            <img src="{{ url_for('static', filename='assets/images/agency/2.png') }}" class="bg-img" alt="">
-                                            <span class="label label-shadow">2 properties</span>
-                                            <div class="agent-overlay"></div>
-                                            <div class="overlay-content">
-                                                <ul>
-                                                    <li><a href="https://accounts.google.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-1.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://twitter.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-2.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://www.facebook.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-3.png') }}" alt=""></a>
-                                                    </li>
-                                                </ul>
-                                                <span>Connect</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="agent-content">
-                                        <h3><a href="agency-profile.html">Corsair Real Estate</a></h3>
-                                        <p class="font-roboto">Real estate Agency</p>
-                                        <ul class="agent-contact">
-                                            <li>
-                                                <i class="fas fa-phone-alt"></i> 
-                                                <span class="phone-number">+91 426015400</span>
-                                                <span class="character">+91 42601****</span>
-                                                <span class="label label-light label-flat color-2">
-                                                    show    
-                                                    <span>hide</span>
-                                                </span>
-                                            </li>
-                                            <li><i class="fas fa-envelope"></i> corsair@gmail.com</li>
-                                            <li><i class="fas fa-fax"></i> 247 054 787</li>
-                                        </ul>
-                                        <a href="agency-profile.html">View profile <i class="fas fa-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6 wow fadeInUp">
-                                <div class="property-box">
-                                    <div class="agent-image">
-                                        <div>
-                                            <img src="{{ url_for('static', filename='assets/images/agency/3.png') }}" class="bg-img" alt="">
-                                            <span class="label label-shadow">3 properties</span>
-                                            <div class="agent-overlay"></div>
-                                            <div class="overlay-content">
-                                                <ul>
-                                                    <li><a href="https://accounts.google.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-1.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://twitter.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-2.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://www.facebook.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-3.png') }}" alt=""></a>
-                                                    </li>
-                                                </ul>
-                                                <span>Connect</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="agent-content">
-                                        <h3><a href="agency-profile.html">Broadleaf Homes</a></h3>
-                                        <p class="font-roboto">Real estate Agency</p>
-                                        <ul class="agent-contact">
-                                            <li>
-                                                <i class="fas fa-phone-alt"></i> 
-                                                <span class="phone-number">+91 5470087201</span>
-                                                <span class="character">+91 547008****</span>
-                                                <span class="label label-light label-flat color-2">
-                                                    show    
-                                                    <span>hide</span>
-                                                </span>
-                                            </li>
-                                            <li><i class="fas fa-envelope"></i> broadleaf@gmail.in</li>
-                                            <li><i class="fas fa-fax"></i> 248 200 325</li>
-                                        </ul>
-                                        <a href="agency-profile.html">View profile <i class="fas fa-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6 wow fadeInUp">
-                                <div class="property-box">
-                                    <div class="agent-image">
-                                        <div>
-                                            <img src="{{ url_for('static', filename='assets/images/agency/1.png') }}" class="bg-img" alt="">
-                                            <span class="label label-shadow">6 properties</span>
-                                            <div class="agent-overlay"></div>
-                                            <div class="overlay-content">
-                                                <ul>
-                                                    <li><a href="https://accounts.google.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-1.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://twitter.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-2.png') }}" alt=""></a>
-                                                    </li>
-                                                    <li><a href="https://www.facebook.com/"><img src="{{ url_for('static', filename='assets/images/about/icon-3.png') }}" alt=""></a>
-                                                    </li>
-                                                </ul>
-                                                <span>Connect</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="agent-content">
-                                        <h3><a href="agency-profile.html">Catbird Estates</a></h3>
-                                        <p class="font-roboto">Real estate Agency</p>
-                                        <ul class="agent-contact">
-                                            <li>
-                                                <i class="fas fa-phone-alt"></i> 
-                                                <span class="phone-number">+91 2714203587</span>
-                                                <span class="character">+91 271420****</span>
-                                                <span class="label label-light label-flat color-2">
-                                                    show    
-                                                    <span>hide</span>
-                                                </span>
-                                            </li>
-                                            <li><i class="fas fa-envelope"></i> catbird@gmail.in</li>
-                                            <li><i class="fas fa-fax"></i> 571 241 925</li>
-                                        </ul>
-                                        <a href="agency-profile.html">View profile <i class="fas fa-arrow-right"></i></a>
-                                    </div>
-                                </div>
+                            <div class="dashboard-list">
+                                <ul class="nav nav-tabs right-line-tab">
+                                    <li class="nav-item"><a class="nav-link" href="user-dashboard.html">Dashboard</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="user-listing.html">My Listing</a></li>
+                                    <li class="nav-item"><a class="nav-link active" href="user-create.html">create property</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="user-profile.html">My profile</a>
+                                    </li>
+                                    <li class="nav-item"><a class="nav-link" href="user-favourites.html">favourites</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="user-payment.html">Cards & payment</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="user-privacy.html">Privacy</a></li>
+                                    <li class="nav-item"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#logout" class="nav-link">Log out</a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 col-lg-4">
-                    <div class="left-sidebar single-sidebar sticky-cls">
-                        <div class="filter-cards">
-                            <div class="advance-card">
-                                <h6>Request exploration</h6>
-                                <div class="category-property">
-                                    <form>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Your Name" required="">
+                    <div class="col-lg-9">
+                        <div class="dashboard-content">
+                            <div class="create-tab" id="create-property">
+                                <div class="property-wizard common-card">
+                                    <div class="common-header">
+                                        <h5>Create property</h5>
+                                    </div>
+                                    <div class="create-property-form">
+                                        <div class="form-inputs">
+                                            <h6>Basic information</h6>
+                                            <form class="row gx-2 gx-sm-3">
+                                                <div class="form-group col-sm-4">
+                                                    <label>Property Type</label>
+                                                    <input type="text" class="form-control" placeholder="villa">
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                    <label>Property Status</label>
+                                                    <div class="dropdown">
+                                                        <span class="dropdown-toggle font-rubik" data-bs-toggle="dropdown"><span>For sale</span> <i class="fas fa-angle-down"></i></span>
+                                                        <div class="dropdown-menu text-start">
+                                                            <a class="dropdown-item" href="javascript:void(0)">For Rent</a>
+                                                            <a class="dropdown-item" href="javascript:void(0)">For Sale</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                    <label>Property Price</label>
+                                                    <input type="text" class="form-control" placeholder="$2800">
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                    <label>Max Rooms</label>
+                                                    <div class="dropdown">
+                                                        <span class="dropdown-toggle font-rubik" data-bs-toggle="dropdown"><span>1</span> <i class="fas fa-angle-down"></i></span>
+                                                        <div class="dropdown-menu text-start">
+                                                            <a class="dropdown-item" href="javascript:void(0)">2</a>
+                                                            <a class="dropdown-item" href="javascript:void(0)">3</a>
+                                                            <a class="dropdown-item" href="javascript:void(0)">4</a>
+                                                            <a class="dropdown-item" href="javascript:void(0)">5</a>
+                                                            <a class="dropdown-item" href="javascript:void(0)">6</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                    <label>Beds</label>
+                                                    <div class="dropdown">
+                                                        <span class="dropdown-toggle font-rubik" data-bs-toggle="dropdown"><span>1</span> <i class="fas fa-angle-down"></i></span>
+                                                        <div class="dropdown-menu text-start">
+                                                            <a class="dropdown-item" href="javascript:void(0)">2</a>
+                                                            <a class="dropdown-item" href="javascript:void(0)">3</a>
+                                                            <a class="dropdown-item" href="javascript:void(0)">4</a>
+                                                            <a class="dropdown-item" href="javascript:void(0)">5</a>
+                                                            <a class="dropdown-item" href="javascript:void(0)">6</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                    <label>Baths</label>
+                                                    <div class="dropdown">
+                                                        <span class="dropdown-toggle font-rubik" data-bs-toggle="dropdown"><span>1</span> <i class="fas fa-angle-down"></i></span>
+                                                        <div class="dropdown-menu text-start">
+                                                            <a class="dropdown-item" href="javascript:void(0)">2</a>
+                                                            <a class="dropdown-item" href="javascript:void(0)">3</a>
+                                                            <a class="dropdown-item" href="javascript:void(0)">4</a>
+                                                            <a class="dropdown-item" href="javascript:void(0)">5</a>
+                                                            <a class="dropdown-item" href="javascript:void(0)">6</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                    <label>Area</label>
+                                                    <input type="text" class="form-control" placeholder="85 sq ft">
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                    <label>Price</label>
+                                                    <input type="text" class="form-control" placeholder="$3000">
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                    <label>Agencies</label>
+                                                    <div class="dropdown">
+                                                        <span class="dropdown-toggle font-rubik" data-bs-toggle="dropdown"><span>Premiere</span> <i class="fas fa-angle-down"></i></span>
+                                                        <div class="dropdown-menu text-start">
+                                                            <a class="dropdown-item" href="javascript:void(0)">Blue Sky</a>
+                                                            <a class="dropdown-item" href="javascript:void(0)">Zephyr</a>
+                                                            <a class="dropdown-item" href="javascript:void(0)">Premiere</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-sm-12">
+                                                    <label>Description</label>
+                                                    <textarea class="form-control" rows="4"></textarea>
+                                                </div>
+                                            </form>
                                         </div>
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Email Address" required="">
+                                        <div class="form-inputs">
+                                            <h6>Address</h6>
+                                            <form class="row gx-3">
+                                                <div class="form-group col-sm-6">
+                                                    <label>Address</label>
+                                                    <input type="text" class="form-control" placeholder="Address of your property">
+                                                </div>
+                                                <div class="form-group col-sm-6">
+                                                    <label>Zip code</label>
+                                                    <input type="number" class="form-control" placeholder="39702">
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                    <label>Any Country</label>
+                                                    <div class="dropdown">
+                                                        <span class="dropdown-toggle font-rubik" data-bs-toggle="dropdown"><span>Austria</span> <i class="fas fa-angle-down"></i></span>
+                                                        <div class="dropdown-menu text-start">
+                                                            <a class="dropdown-item" href="javascript:void(0)">Austria</a>
+                                                            <a class="dropdown-item" href="javascript:void(0)">Brazil</a>
+                                                            <a class="dropdown-item" href="javascript:void(0)">New york</a>
+                                                            <a class="dropdown-item" href="javascript:void(0)">USA</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                    <label>Any City</label>
+                                                    <div class="dropdown">
+                                                        <span class="dropdown-toggle font-rubik" data-bs-toggle="dropdown"><span>Amreli</span> <i class="fas fa-angle-down"></i></span>
+                                                        <div class="dropdown-menu text-start">
+                                                            <a class="dropdown-item" href="javascript:void(0)">Gandhinagar</a>
+                                                            <a class="dropdown-item" href="javascript:void(0)">Bharuch</a>
+                                                            <a class="dropdown-item" href="javascript:void(0)">Amreli</a>
+                                                            <a class="dropdown-item" href="javascript:void(0)">Ahmadabad</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                    <label>Landmark</label>
+                                                    <input type="text" class="form-control" placeholder="landmark place name">
+                                                </div>
+                                            </form>
                                         </div>
-                                        <div class="form-group">
-                                            <input placeholder="phone number" class="form-control" name="mobnumber" id="tbNumbers" oninput="maxLengthCheck(this)" type="tel" onkeypress="javascript:return isNumber(event)" maxlength="9" required="">
+                                        <div class="form-inputs">
+                                            <h6>Gallery</h6>
+                                            <form class="dropzone" id="multiFileUpload" action="/upload.php">
+                                                <div class="dz-message needsclick"><i class="fas fa-cloud-upload-alt"></i>
+                                                  <h6>Drop files here or click to upload.</h6><span class="note needsclick">(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</span>
+                                                </div>
+                                              </form>
+                                              <form class="row gx-3">
+                                                    <div class="form-group col-sm-12">
+                                                        <label>Video (mp4)</label>
+                                                        <input type="text" class="form-control" placeholder="mp4 video link">
+                                                    </div>
+                                                    <div class="form-group col-sm-12">
+                                                        <label>Additional features</label>
+                                                        <div class="feature-checkbox">
+                                                            <label for="chk-ani">
+                                                                <input class="checkbox_animated color-2" id="chk-ani" type="checkbox"> Emergency Exit
+                                                            </label>
+                                                            <label for="chk-ani1">
+                                                                <input class="checkbox_animated color-2" id="chk-ani1" type="checkbox"> CCTV
+                                                            </label>
+                                                            <label for="chk-ani2">
+                                                                <input class="checkbox_animated color-2" id="chk-ani2" type="checkbox"> Free Wi-Fi
+                                                            </label>
+                                                            <label for="chk-ani3">
+                                                                <input class="checkbox_animated color-2" id="chk-ani3" type="checkbox">  Free Parking In The Area
+                                                            </label>
+                                                            <label for="chk-ani4">
+                                                                <input class="checkbox_animated color-2" id="chk-ani4" type="checkbox">  Air Conditioning
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                              </form>
                                         </div>
-                                        <div class="form-group">
-                                            <textarea placeholder="Message" class="form-control" rows="3"></textarea>
-                                        </div>
-                                        <button type="submit" onclick="document.location='user-listing.html'" class="btn btn-gradient color-2 btn-block btn-pill">Submit
-                                            Request</button>
-                                    </form>
-                                </div>
-                            </div>
-                           <div class="advance-card feature-card">
-                                <h6>Featured</h6>
-                                <div class="feature-slider">
-                                    <div>
-                                        <img src="{{ url_for('static', filename='assets/images/property/4.jpg') }}" class="bg-img" alt="">
-                                        <div class="bottom-feature">
-                                            <h5>Neverland</h5>
-                                            <h6>$13,000 <small>/ start from</small></h6>
+                                        <div class="text-end">
+                                            <button type="submit" class="btn btn-gradient color-2 btn-pill">Add property</button>
                                         </div>
                                     </div>
-                                    <div>
-                                        <img src="{{ url_for('static', filename='assets/images/property/16.jpg') }}" class="bg-img" alt="">
-                                        <div class="bottom-feature">
-                                            <h5>Neverland</h5>
-                                            <h6>$13,000 <small>/ start from</small></h6>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <img src="{{ url_for('static', filename='assets/images/property/14.jpg') }}" class="bg-img" alt="">
-                                        <div class="bottom-feature">
-                                            <h5>Neverland</h5>
-                                            <h6>$13,000 <small>/ start from</small></h6>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="labels-left">
-                                    <span class="label label-success">featured</span>
-                                </div>
-                            </div>
-                            <div class="advance-card">
-                                <h6>Recently Added</h6>
-                                <div class="recent-property">
-                                    <ul>
-                                        <li>
-                                            <div class="media">
-                                                <img src="{{ url_for('static', filename='assets/images/property/9.jpg') }}" class="img-fluid" alt="">
-                                                <div class="media-body">
-                                                    <h5>Sea Breezes</h5>
-                                                    <span>$9800 / <span>Month</span></span>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="media">
-                                                <img src="{{ url_for('static', filename='assets/images/property/10.jpg') }}" class="img-fluid" alt="">
-                                                <div class="media-body">
-                                                    <h5>Orchard House</h5>
-                                                    <span>$7500 / <span>Month</span></span>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="media">
-                                                <img src="{{ url_for('static', filename='assets/images/property/11.jpg') }}" class="img-fluid" alt="">
-                                                <div class="media-body">
-                                                    <h5>Neverland</h5>
-                                                    <span>$5000 / <span>Month</span></span>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
-    <!-- agent grid section end -->
+    <!-- user dashboard section end -->
 
     <!-- footer start -->
     <footer>
@@ -1265,6 +986,29 @@
     </div>
     <!-- tap to top end -->
 
+    <!-- log out modal start -->
+    <div class="modal fade edit-profile-modal logout-modal" id="logout">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Logging out</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h6>Are you sure ? you want to log out.</h6>
+                    <p>Once you will be logged out and will be unable to log in back.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dashed color-2 btn-pill" data-bs-dismiss="modal">no</button>
+                    <button type="button" onclick="document.location='layout-2.html'" class="btn btn-gradient color-2 btn-pill">yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- log out modal end -->
+
     <!-- customizer start -->
     <div class="customizer-wrap">
         <div class="customizer-links">
@@ -1323,9 +1067,6 @@
     <!-- popper js-->
     <script src="{{ url_for('static', filename='assets/js/popper.min.js') }}"></script>
 
-    <!-- Bootstrap js-->
-    <script src="{{ url_for('static', filename='assets/js/bootstrap.bundle.min.js') }}"></script>
-
     <!-- feather icon js-->
     <script src="{{ url_for('static', filename='assets/js/feather-icon/feather.min.js') }}"></script>
     <script src="{{ url_for('static', filename='assets/js/feather-icon/feather-icon.js') }}"></script>
@@ -1335,8 +1076,12 @@
     <script src="{{ url_for('static', filename='assets/js/slick-animation.min.js') }}"></script>
     <script src="{{ url_for('static', filename='assets/js/custom-slick.js') }}"></script>
 
-    <!--grid js -->
-    <script src="{{ url_for('static', filename='assets/js/grid-list.js') }}"></script>
+    <!-- Bootstrap js-->
+    <script src="{{ url_for('static', filename='assets/js/bootstrap.bundle.min.js') }}"></script>
+
+    <!-- Dropzone js -->
+    <script src="{{ url_for('static', filename='assets/js/dropzone/dropzone.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/dropzone/dropzone-script.js') }}"></script>
 
     <!-- Template js-->
     <script src="{{ url_for('static', filename='assets/js/script.js') }}"></script>
@@ -1344,8 +1089,11 @@
     <!-- Customizer js-->
     <script src="{{ url_for('static', filename='assets/js/customizer.js') }}"></script>
 
+    <!-- wow js-->
+    <script src="{{ url_for('static', filename='assets/js/wow.min.js') }}"></script>
+
     <!-- Color-picker js-->
-    <script src="{{ url_for('static', filename='assets/js/color/single-property.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/color/template-color.js') }}"></script>
 
 </body>
 

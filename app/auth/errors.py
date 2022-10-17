@@ -15,3 +15,9 @@ def page_not_found(e):
 @auth.app_errorhandler(500)
 def internal_server_error(e):
     return render_template("auth/500.html"), 500
+
+
+@auth.app_errorhandler(503)
+def internal_server_error(e):
+    return render_template("main/503.html"), 503
+

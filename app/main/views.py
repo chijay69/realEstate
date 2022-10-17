@@ -27,6 +27,7 @@ def index():
     return render_template('main/index.html')
 
 
+@main.route('/user')
 @main.route('/user/<name>')
 def user(name):
     user = User.query.filter_by(first_name=name).first_or_404()
@@ -78,6 +79,21 @@ def services():
 @main.route('/upgrade')
 def upgrade():
     return render_template('main/upgrade.html')
+
+
+@main.route('/user_create')
+def user_create():
+    return render_template('main/user_create.html')
+
+
+@main.route('/user_create')
+def user_listing():
+    return render_template('main/user_listing.html')
+
+
+@main.route('/profile')
+def profile():
+    return render_template('main/profile.html')
 
 
 @main.route('/team')
@@ -184,36 +200,36 @@ def upload(filename):
     # Returning file from appended path
     return send_from_directory(directory=uploads, filename=filename)
 
-
-@main.route('/profile')
-@login_required
-def profile():
-    user = User.query.filter_by(email=current_user.email).first_or_404()
-    address_form = MyAddress()
-    persona_form = MyPersonId()
-    return render_template('main/profile.html', persona_form=persona_form, address_form=address_form, user=user)
-
-
-@main.route('/persona', methods=['POST'])
-def persona():
-    address_form = MyAddress()
-    persona_form = MyPersonId()
-
-    if persona_form.validate_on_submit():
-        pass
-        ...  # handle the register form
-    # render the same template to pass the error message
-    # or pass `form.errors` with `flash()` or `session` then redirect to /
-    return render_template('profile.html', persona_form=persona_form, address_form=address_form)
-
-
-@main.route('/address', methods=['POST'])
-def address():
-    address_form = MyAddress()
-    persona_form = MyPersonId()
-    if address_form.validate_on_submit():
-        pass
-        ...  # handle the login form
-    # render the same template to pass the error message
-    # or pass `form.errors` with `flash()` or `session` then redirect to /
-    return render_template('profile.html', persona_form=persona_form, address_form=address_form)
+#
+# @main.route('/profile')
+# @login_required
+# def profile():
+#     user = User.query.filter_by(email=current_user.email).first_or_404()
+#     address_form = MyAddress()
+#     persona_form = MyPersonId()
+#     return render_template('main/profile.html', persona_form=persona_form, address_form=address_form, user=user)
+#
+#
+# @main.route('/persona', methods=['POST'])
+# def persona():
+#     address_form = MyAddress()
+#     persona_form = MyPersonId()
+#
+#     if persona_form.validate_on_submit():
+#         pass
+#         ...  # handle the register form
+#     # render the same template to pass the error message
+#     # or pass `form.errors` with `flash()` or `session` then redirect to /
+#     return render_template('profile.html', persona_form=persona_form, address_form=address_form)
+#
+#
+# @main.route('/address', methods=['POST'])
+# def address():
+#     address_form = MyAddress()
+#     persona_form = MyPersonId()
+#     if address_form.validate_on_submit():
+#         pass
+#         ...  # handle the login form
+#     # render the same template to pass the error message
+#     # or pass `form.errors` with `flash()` or `session` then redirect to /
+#     return render_template('profile.html', persona_form=persona_form, address_form=address_form)

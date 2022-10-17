@@ -39,7 +39,7 @@
             </div>
             <div class="col-12">
                 <div>
-                    <h3 class="mb-0">Please wait Real estate Template loading...</h3>
+                    <h3 class="mb-0">Loading...</h3>
                 </div>
             </div>
         </div>
@@ -83,6 +83,9 @@
                                         <li class="dropdown">
                                             <a href="{{ url_for('main.agency')}}" class="nav-link menu-title">Agency</a>
                                         </li>
+                                        <li class="dropdown">
+                                            <a href="{{ url_for('main.services')}}" class="nav-link menu-title">Services</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -119,7 +122,7 @@
                                         </ul>
                                     </li>
                                     <li class="dropdown">
-                                        <a href="login">
+                                        <a href="{{ url_for('auth.login') }}">
                                             <i data-feather="user"></i>
                                         </a>
                                     </li>
@@ -132,6 +135,15 @@
         </div>
     </header>
     <!--  header end -->
+
+    <!--    flash message start -->
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times; </button>
+        {{ message }}
+    </div>
+    {% endfor %}
+    <!--    flash message end-->
 
     <!-- home section start -->
     <section class="home-section layout-1 layout-6">
