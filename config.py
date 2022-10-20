@@ -14,6 +14,7 @@ class Config:
     SSL_REDIRECT = False
     UPLOAD_FOLDER = os.environ.get('UPLOAD_FOLDER', 'templates\main')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    POSTS_PER_PAGE = 3
 
     @staticmethod
     def init_app(app):

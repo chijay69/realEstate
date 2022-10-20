@@ -8,23 +8,23 @@
     <meta name="description" content="Sheltos - User profile page">
     <meta name="keywords" content="sheltos">
     <meta name="author" content="sheltos">
-    <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon">
-    <title>Sheltos - User profile page</title>
+    <link rel="icon" href="{{ url_for('static', filename='assets/images/favicon.png') }}" type="image/x-icon">
+    <title>Profile</title>
 
    <!--Google font-->
-    <link href="../../css?family=Montserrat:400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
-    <link href="../../css-1?family=Roboto:400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
-    <link href="../../css-2?family=Rubik:400,400i,500,500i,700,700i" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css?family=Montserrat:400,400i,500,500i,600,600i,700,700i,800,800i') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css-1?family=Roboto:400,400i,500,500i,700,700i&display=swap') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css-2?family=Rubik:400,400i,500,500i,700,700i') }}" rel="stylesheet">
 
     <!-- datepicker css -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/datepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/datepicker.min.css') }}">
 
     <!-- animate css -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/animate.css') }}">
 
     <!-- Template css -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/color1.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/color1.css') }}">
 
 </head>
 
@@ -34,7 +34,7 @@
     <div class="loader-wrapper">
         <div class="row loader-img">
             <div class="col-12">
-                <img src="../assets/images/loader/loader-2.gif" class="img-fluid" alt="">
+                <img src="{{ url_for('static', filename='assets/images/loader/loader-2.gif') }}" class="img-fluid" alt="">
             </div>
         </div>
     </div>
@@ -47,8 +47,8 @@
                 <div class="col">
                     <div class="menu">
                         <div class="brand-logo">
-                            <a href="../index.html">
-                                <img src="../assets/images/logo/2.png" alt="" class="img-fluid">
+                            <a href="index.html">
+                                <img src="{{ url_for('static', filename='assets/images/logo/2.png') }}" alt="" class="img-fluid">
                             </a>
                         </div>
                         <nav>
@@ -369,9 +369,9 @@
                                                                 </div>
                                                                 <div class="submenu-content opensubmegamenu">
                                                                     <ul class="list">
-                                                                        <li><a href="../email-template/offer.html">Offer</a></li>
-                                                                        <li><a href="../email-template/confirmation.html">Confirmation</a></li>
-                                                                        <li><a href="../email-template/thankyou.html">Thank you</a></li>
+                                                                        <li><a href="email-template/offer.html">Offer</a></li>
+                                                                        <li><a href="email-template/confirmation.html">Confirmation</a></li>
+                                                                        <li><a href="email-template/thankyou.html">Thank you</a></li>
                                                                     </ul>
                                                                 </div>
                                                             </div>
@@ -381,14 +381,13 @@
                                                                 </div>
                                                                 <div class="submenu-content opensubmegamenu">
                                                                     <ul class="list">
-                                                                        <li><a href="user-dashboard.html">user dashboard <span class="icon-trend label"><i class="fas fa-bolt"></i></span></a></li>
-                                                                        <li><a href="user-listing.html">My Listing</a></li>
-                                                                        <li><a href="user-create.html">Create property</a></li>
-                                                                        <li><a href="user-profile.html">My profile</a></li>
-                                                                        <li><a href="user-favourites.html">Favourites</a></li>
-                                                                        <li><a href="compare.html">Compare Property</a></li>
-                                                                        <li><a href="user-payment.html">Cards & payment</a></li>
-                                                                        <li><a href="user-privacy.html">Privacy</a></li>
+                                                                        <li><a href="{{ url_for('main.user') }}">user dashboard <span class="icon-trend label"><i class="fas fa-bolt"></i></span></a></li>
+                                                                       <li class="nav-item"><a class="nav-link active" href="">Dashboard</a></li>
+                                                                        <li class="nav-item"><a class="nav-link" href="{{ url_for('main.user_listing') }}">My Listing</a></li>
+                                                                        <li class="nav-item"><a class="nav-link" href="{{ url_for('main.user_create') }}">create property</a></li>
+                                                                        <li class="nav-item"><a class="nav-link" href="{{ url_for('main.profile') }}">My profile</a></li>
+                                                                        <li class="nav-item"><a class="nav-link" href="user-payment">Cards & payment</a></li>
+                                                                        <li class="nav-item"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#logout" class="nav-link">Log out</a></li>
                                                                     </ul>
                                                                 </div>
                                                             </div>
@@ -534,7 +533,7 @@
 
     <!-- breadcrumb start -->
     <section class="breadcrumb-section p-0">
-        <img src="../assets/images/inner-background.jpg" class="bg-img img-fluid" alt="">
+        <img src="{{ url_for('static', filename='assets/images/inner-background.jpg') }}" class="bg-img img-fluid" alt="">
         <div class="container">
             <div class="breadcrumb-content">
                 <div>
@@ -560,7 +559,7 @@
                             <div class="user-profile">
                                 <div class="media">
                                     <div class="change-pic">
-                                        <img src="../assets/images/avatar/3.jpg" class="img-fluid update_img" alt="">
+                                        <img src="{{ url_for('static', filename='assets/images/avatar/3.jpg') }}" class="img-fluid update_img" alt="">
                                         <div class="change-hover">
                                             <button type="button" class="btn"><i data-feather="camera"></i></button>
                                             <input class="updateimg" type="file" name="img" onchange="readURL(this,0)">
@@ -683,7 +682,7 @@
                                             </div>
                                             <div class="col-xxl-5 offset-xxl-1 col-xl-5 offset-xl-0">
                                                 <div class="about-img d-xl-block d-none">
-                                                    <img src="../assets/images/inner-pages/2.png" class="img-fluid" alt="">
+                                                    <img src="{{ url_for('static', filename='assets/images/inner-pages/2.png') }}" class="img-fluid" alt="">
                                                 </div>
                                             </div>
                                         </div>
@@ -704,8 +703,8 @@
                 <div class="row">
                     <div class="col-xl-3">
                         <div class="footer-details text-center">
-                            <a href="../index.html">
-                                <img src="../assets/images/logo/footer-logo.png" alt="">
+                            <a href="index.html">
+                                <img src="{{ url_for('static', filename='assets/images/logo/footer-logo.png') }}" alt="">
                             </a>
                             <p>Elegant retreat in a quiet Coral Gables setting. This home provides
                                 wonderful entertaining spaces with a chef kitchen opening
@@ -822,7 +821,7 @@
                                         <div class="media">
                                             <a href="blog-detail-left-sidebar.html">
                                                 <div class="img-overlay">
-                                                        <img src="../assets/images/footer/1.jpg" alt="">
+                                                        <img src="{{ url_for('static', filename='assets/images/footer/1.jpg') }}" alt="">
                                                 </div>
                                             </a>
                                             <div class="media-body">
@@ -835,7 +834,7 @@
                                         <div class="media">
                                             <a href="blog-detail-left-sidebar.html">
                                                 <div class="img-overlay">
-                                                        <img src="../assets/images/footer/2.jpg" alt="">
+                                                        <img src="{{ url_for('static', filename='assets/images/footer/2.jpg') }}" alt="">
                                                 </div>
                                             </a>
                                             <div class="media-body">
@@ -849,7 +848,7 @@
                                         <div class="media">
                                             <a href="blog-detail-left-sidebar.html">
                                                 <div class="img-overlay">
-                                                        <img src="../assets/images/footer/3.jpg" alt="">
+                                                        <img src="{{ url_for('static', filename='assets/images/footer/3.jpg') }}" alt="">
                                                 </div>
                                             </a>
                                             <div class="media-body">
@@ -862,7 +861,7 @@
                                         <div class="media">
                                             <a href="blog-detail-left-sidebar.html">
                                                 <div class="img-overlay">
-                                                        <img src="../assets/images/footer/4.jpg" alt="">
+                                                        <img src="{{ url_for('static', filename='assets/images/footer/4.jpg') }}" alt="">
                                                 </div>
                                             </a>
                                             <div class="media-body">
@@ -929,18 +928,18 @@
                                 <label for="last">last name</label>
                                 <input type="text" class="form-control" id="last" placeholder="last name">
                             </div>
-                            <div class="form-group col-md-6">
-                                <label for="gender">gender</label>
-                                <select id="gender" class="form-control">
-                                    <option selected="">Choose...</option>
-                                    <option>female</option>
-                                    <option>male</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Birthday</label>
-                                <input class="form-control" placeholder="18 april" id="datepicker">
-                            </div>
+<!--                            <div class="form-group col-md-6">-->
+<!--                                <label for="gender">gender</label>-->
+<!--                                <select id="gender" class="form-control">-->
+<!--                                    <option selected="">Choose...</option>-->
+<!--                                    <option>female</option>-->
+<!--                                    <option>male</option>-->
+<!--                                </select>-->
+<!--                            </div>-->
+<!--                            <div class="form-group col-md-6">-->
+<!--                                <label>Birthday</label>-->
+<!--                                <input class="form-control" placeholder="18 april" id="datepicker">-->
+<!--                            </div>-->
                             <div class="form-group col-12">
                                 <label for="inputAddress">Address</label>
                                 <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
@@ -1145,12 +1144,13 @@
                 </div>
                 <div class="modal-body">
                     <h6>Are you sure ? you want to log out.</h6>
-                    <p>Once you will be logged out and will be unable to log in back.</p>
+<!--                    <p>Once you will be logged out and will be unable to log in back.</p>-->
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-dashed color-2" data-bs-dismiss="modal">no</button>
-                    <button type="button" onclick="document.location='layout-2.html'" class="btn btn-gradient color-2">yes</button>
-                </div>
+                <a class="modal-footer">
+                    <button type="button" class="btn btn-dashed color-2 btn-pill" data-bs-dismiss="modal">no</button>
+                    <a href="{{ url_for('auth.logout) }}"><button type="button" onclick="document.location='layout-2'" class="btn btn-gradient color-2 btn-pill">yes</button></a>
+                </a>
+            </div>
             </div>
         </div>
     </div>
@@ -1209,31 +1209,31 @@
     <!-- customizer end -->
 
     <!-- latest jquery-->
-    <script src="../assets/js/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery-3.6.0.min.js') }}"></script>
 
     <!-- popper js-->
-    <script src="../assets/js/popper.min.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/popper.min.js') }}"></script>
 
     <!-- feather icon js-->
-    <script src="../assets/js/feather-icon/feather.min.js"></script>
-    <script src="../assets/js/feather-icon/feather-icon.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/feather-icon/feather.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/feather-icon/feather-icon.js') }}"></script>
 
     <!-- slick js -->
-    <script src="../assets/js/slick.js"></script>
-    <script src="../assets/js/slick-animation.min.js"></script>
-    <script src="../assets/js/custom-slick.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/slick.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/slick-animation.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/custom-slick.js') }}"></script>
 
     <!-- datepicker js-->
-    <script src="../assets/js/date-picker.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/date-picker.js') }}"></script>
 
     <!-- Bootstrap js-->
-    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/bootstrap.bundle.min.js') }}"></script>
 
     <!-- Template js-->
-    <script src="../assets/js/script.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/script.js') }}"></script>
 
     <!-- Customizer js-->
-    <script src="../assets/js/customizer.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/customizer.js') }}"></script>
 
     <script>
 

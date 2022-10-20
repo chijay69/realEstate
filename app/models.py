@@ -1,3 +1,4 @@
+from datetime import datetime, date, time
 from flask import current_app
 from flask_login import UserMixin, current_user
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
@@ -17,11 +18,12 @@ class Property(db.Model):
     __tablename__ = 'properties'
     id = db.Column(db.Integer, primary_key=True)
     property_type = db.Column(db.String(64), index=True)
-    property_status = employment_status = db.Column(db.Enum(PropertyStatusEnum), default=PropertyStatusEnum.rent, nullable=False),
+    property_status = employment_status = db.Column(db.Enum(PropertyStatusEnum), default=PropertyStatusEnum.rent, nullable=True),
     property_price = db.Column(db.Float)
     max_rooms = db.Column(db.Integer)
     beds = db.Column(db.Integer)
-    area = db.Column(db.String(64))
+    baths = db.Column(db.Integer)
+    area = db.Column(db.BigInteger)
     agency = db.Column(db.String(64))
     price = db.Column(db.Float)
     description = db.Column(db.Text)
@@ -29,14 +31,16 @@ class Property(db.Model):
     zip_code = db.Column(db.Integer)
     country = db.Column(db.String(64))
     city = db.Column(db.String(64))
-    landmark = db.Column(db.Text)
-    gallery = db.Column(db.String(64))
-    video = db.Column(db.String(64))
+    landmark = db.Column(db.Text, nullable=True)
+    gallery = db.Column(db.String(64), nullable=True)
+    video = db.Column(db.String(64), nullable=True)
     emergency_exit = db.Column(db.Boolean)
     cctv = db.Column(db.Boolean)
     wifi = db.Column(db.Boolean)
     parking = db.Column(db.Boolean)
     ac = db.Column(db.Boolean)
+    join_time = db.Column(db.DateTime(), default=datetime.now())
+    join_date = db.Column(db.DateTime(), default=datetime.now())
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
 
@@ -46,6 +50,9 @@ class User(UserMixin, db.Model):
     first_name = db.Column(db.String(64), index=True)
     last_name = db.Column(db.String(64), index=True)
     email = db.Column(db.String(64), unique=True, index=True)
+    address = db.Column(db.String(128), nullable=True)
+    city = db.Column(db.String(64), nullable=True)
+    state = db.Column(db.String(64), nullable=True)
     password_hash = db.Column(db.String(128))
     properties = db.relationship('Property', backref='user', lazy='dynamic')
 

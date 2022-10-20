@@ -3,7 +3,8 @@ from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash
 
 from . import auth
-from .forms import LoginForm, RegistrationForm, ForgotForm, ResetPasswordForm
+from .forms import LoginForm, RegistrationForm, ForgotForm, ResetPasswordForm, ChangePasswordForm, ChangeEmailForm, \
+    ProfileForm
 from .. import db
 from ..emails import send_async
 from ..models import User
@@ -19,7 +20,8 @@ def secret():
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(email=form.email.data, first_name=form.firstname.data, last_name=form.lastname.data, password=form.password.data)
+        user = User(email=form.email.data, first_name=form.firstname.data, last_name=form.lastname.data,
+                    password=form.password.data)
         db.session.add(user)
         db.session.commit()
         flash('Registration Successful!')
@@ -72,8 +74,8 @@ def resend_confirmation():
     return redirect(url_for('main.index'))
 
 
-@auth.route('/reset', methods=["GET", "POST"])
-def reset():
+@auth.route('/forgot', methods=["GET", "POST"])
+def forgot():
     if current_user.is_authenticated:
         flash('Log out to reset password')
         return redirect(url_for('main.index'))
@@ -89,20 +91,20 @@ def reset():
     return render_template('auth/forgot_password.html', form=form)
 
 
-# @auth.route('/reset', methods=["GET", "POST"])
-# def forgot():
-#    if current_user.is_authenticated:
-#        flash('Log out to reset password')
-#        return redirect(url_for('main.index'))
-#    form = ForgotForm()
-#    if form.validate_on_submit():
-#        user = User.query.filter_by(email=form.email.data).first()
-#        if user:
-#            token = user.get_reset_token()
-#            send_async(user.email, 'Password reset requested', 'auth/email/recover.html', token=token)
-#            flash('An email has been set on how to reset your password')
-#            return redirect(url_for('auth.login'))
-#    return render_template('auth/reset.html', form=form)
+@auth.route('/reset', methods=["GET", "POST"])
+def reset():
+    if current_user.is_authenticated:
+        flash('Log out to reset password')
+        return redirect(url_for('main.index'))
+    form = ForgotForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        if user:
+            token = user.get_reset_token()
+            send_async(user.email, 'Password reset requested', 'auth/email/recover.html', token=token)
+            flash('An email has been set on how to reset your password')
+            return redirect(url_for('auth.login'))
+    return render_template('auth/reset.html', form=form)
 
 
 @auth.route('/reset/<token>', methods=["GET", "POST"])
@@ -125,4 +127,62 @@ def reset_password(token):
         flash('Password Reset Complete, login.')
         return redirect(url_for('auth.login'))
     return render_template('auth/reset_with_token.html', form=form, token=token)
+
+
+@auth.route('/profile')
+@login_required
+def profile():
+    user = User.query.filter_by(email=current_user.email).first_or_404()
+    password_form = ChangePasswordForm()
+    email_form = ChangeEmailForm()
+    return render_template('auth/profile.html', email_form=email_form, password_form=password_form, user=user)
+
+
+@auth.route('/email', methods=['POST'])
+def email():
+    password_form = ChangePasswordForm()
+    email_form = ChangeEmailForm()
+
+    if email_form.validate_on_submit():
+        pass
+        ...  # handle the register form
+    # render the same template to pass the error message
+    # or pass `form.errors` with `flash()` or `session` then redirect to /
+    return render_template('auth/profile.html', email_form=email_form, password_form=password_form)
+
+
+@auth.route('/passwd', methods=['POST'])
+def passwd():
+    password_form = ChangePasswordForm()
+    email_form = ChangeEmailForm()
+    if password_form.validate_on_submit():
+        pass
+        ...  # handle the login form
+    # render the same template to pass the error message
+    # or pass `form.errors` with `flash()` or `session` then redirect to /
+    return render_template('auth/profile.html', email_form=email_form, password_form=password_form)
+
+
+@login_required
+@auth.route('/edit_profile', methods=['GET', 'POST'])
+def edit_profile():
+    if current_user.is_authenticated:
+        profile_form = ProfileForm()
+        if profile_form.validate_on_submit():
+            user = User.query.filter_by(email=current_user.email).first()
+            if user:
+                user.first_name = profile_form.first_name
+                user.last_name = profile_form.last_name
+                user.address = profile_form.address
+                user.city = profile_form.city
+                user.state = profile_form.state
+                db.session.add(user)
+                db.session.commit()
+                flash('Profile updated successfully')
+            else:
+                flash('Users does not exist')
+        else:
+            flash('Fill form correctly')
+    else:
+        flash('User must be logged in')
 

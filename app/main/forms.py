@@ -54,3 +54,31 @@ class MyAddress(FlaskForm):
     address_two = StringField('Address Line 2', validators=None)
     state = IntegerField('State', validators=[DataRequired()])
     country = SelectField('Country', validators=[DataRequired()], choices=get_country_dict())
+
+
+class MyPropertyForm(FlaskForm):
+    property_type = StringField('Property type')
+    property_status = SelectField('Property status', validators=[DataRequired()],
+                                  choices=[('rent', 'rent'), ('sale', 'sale')])
+    property_price = FloatField('Property price')
+    max_rooms = IntegerField('Max rooms')
+    beds = IntegerField('Beds')
+    baths = IntegerField('Baths')
+    area = IntegerField('Area')
+    agency = StringField('Agency')
+    price = FloatField('Price')
+    description = StringField('Description')
+    address = StringField('Address')
+    zip_code = IntegerField('Zip Code')
+    country = StringField('Country')
+    city = StringField('City')
+    landmark = StringField('Landmark')
+    gallery = StringField('Gallery')
+    video = StringField('Video')
+    cctv = BooleanField('cctv')
+    ac = BooleanField('ac')
+    wifi = BooleanField('wifi')
+
+
+
+

@@ -1,13 +1,17 @@
 import os
 
+from datetime import datetime
+
 from flask import render_template, redirect, flash, url_for, request, send_from_directory, current_app
 from flask_login import login_required, current_user
 
 from . import main
-from .forms import ContactForm, EditProfileAdminForm, Paypal, BankForm, BitCoin, MyPersonId, MyAddress
+from .forms import ContactForm, EditProfileAdminForm, Paypal, BankForm, BitCoin, MyPropertyForm
 from .. import db
 from ..emails import send_async
-from ..models import User
+from ..models import User, Property
+
+from .elapsed_time import elapsed_time, to_string
 
 
 @main.after_request
@@ -30,7 +34,7 @@ def index():
 @main.route('/user')
 @main.route('/user/<name>')
 def user(name):
-    user = User.query.filter_by(first_name=name).first_or_404()
+    user = current_user
     return render_template('main/dashboard.html', user=user)
 
 
@@ -83,12 +87,34 @@ def upgrade():
 
 @main.route('/user_create')
 def user_create():
-    return render_template('main/user_create.html')
+    form = MyPropertyForm()
+    if form.validate_on_submit():
+        prop = Property(
+            property_type=form.property_type.data,
+            property_status=form.property_status.data,
+            property_price=form.property_price.data,
+            max_rooms=form.max_rooms.data,
+            beds=form.beds.data,
+            area=form.area.data,
+            agency=form.agency.data,
+            price=form.price.data,
+            description=form.description.data,
+            address=form.address.data,
+            zip_code=form.zip_code.data,
+            country=form.country.data,
+            city=form.city.data,
+            landmark=form.landmark.data,
+            gallery=form.gallery.data,
+            video=form.video.data,
+            cctv=form.cctv.data,
+            ac=form.ac.data,
+            wifi=form.wifi.data
+        )
+        prop.user_id = current_user.id
+        db.session.add(prop)
+        db.session.commit()
 
-
-@main.route('/user_create')
-def user_listing():
-    return render_template('main/user_listing.html')
+    return render_template('main/user_create.html', form=form, user=current_user)
 
 
 @main.route('/profile')
@@ -199,6 +225,16 @@ def upload(filename):
     uploads = os.path.join(current_app.root_path, 'templates/main')
     # Returning file from appended path
     return send_from_directory(directory=uploads, filename=filename)
+
+
+@login_required
+@main.route('/user_listing')
+def user_listing():
+    # current_user.properties
+    # page = db.paginate(db.select(Property).order_by(Property.join_time))
+    page = Property.query.filter_by(user_id=current_user.id).paginate(
+        page=1, per_page=4, error_out=False)
+    return render_template("main/user_listing.html", page=page.items, el=elapsed_time, dt=datetime, str=str)
 
 #
 # @main.route('/profile')

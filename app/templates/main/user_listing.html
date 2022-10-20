@@ -8,23 +8,23 @@
     <meta name="description" content="Sheltos - User property listing page">
     <meta name="keywords" content="sheltos">
     <meta name="author" content="sheltos">
-    <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon">
-    <title>Sheltos - User property listing page</title>
+    <link rel="icon" href="{{ url_for('static', filename='assets/images/favicon.png') }}" type="image/x-icon">
+    <title>Property listing</title>
 
    <!--Google font-->
-    <link href="../../css?family=Montserrat:400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
-    <link href="../../css-1?family=Roboto:400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
-    <link href="../../css-2?family=Rubik:400,400i,500,500i,700,700i" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css?family=Montserrat:400,400i,500,500i,600,600i,700,700i,800,800i') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css-1?family=Roboto:400,400i,500,500i,700,700i&display=swap') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css-2?family=Rubik:400,400i,500,500i,700,700i') }}" rel="stylesheet">
 
     <!-- magnific css -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/magnific-popup.css') }}">
 
     <!-- animate css -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/animate.css') }}">
 
     <!-- Template css -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/color1.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/color1.css') }}">
 
 </head>
 
@@ -34,7 +34,7 @@
     <div class="loader-wrapper">
         <div class="row loader-img">
             <div class="col-12">
-                <img src="../assets/images/loader/loader-2.gif" class="img-fluid" alt="">
+                <img src="{{ url_for('static', filename='assets/images/loader/loader-2.gif') }}" class="img-fluid" alt="">
             </div>
         </div>
     </div>
@@ -47,8 +47,8 @@
                 <div class="col">
                     <div class="menu">
                         <div class="brand-logo">
-                            <a href="../index.html">
-                                <img src="../assets/images/logo/2.png" alt="" class="img-fluid">
+                            <a href="index.html">
+                                <img src="{{ url_for('static', filename='assets/images/logo/2.png') }}" alt="" class="img-fluid">
                             </a>
                         </div>
                         <nav>
@@ -369,9 +369,9 @@
                                                                 </div>
                                                                 <div class="submenu-content opensubmegamenu">
                                                                     <ul class="list">
-                                                                        <li><a href="../email-template/offer.html">Offer</a></li>
-                                                                        <li><a href="../email-template/confirmation.html">Confirmation</a></li>
-                                                                        <li><a href="../email-template/thankyou.html">Thank you</a></li>
+                                                                        <li><a href="email-template/offer.html">Offer</a></li>
+                                                                        <li><a href="email-template/confirmation.html">Confirmation</a></li>
+                                                                        <li><a href="email-template/thankyou.html">Thank you</a></li>
                                                                     </ul>
                                                                 </div>
                                                             </div>
@@ -381,14 +381,13 @@
                                                                 </div>
                                                                 <div class="submenu-content opensubmegamenu">
                                                                     <ul class="list">
-                                                                        <li><a href="user-dashboard.html">user dashboard <span class="icon-trend label"><i class="fas fa-bolt"></i></span></a></li>
-                                                                        <li><a href="user-listing.html">My Listing</a></li>
-                                                                        <li><a href="user-create.html">Create property</a></li>
-                                                                        <li><a href="user-profile.html">My profile</a></li>
-                                                                        <li><a href="user-favourites.html">Favourites</a></li>
-                                                                        <li><a href="compare.html">Compare Property</a></li>
-                                                                        <li><a href="user-payment.html">Cards & payment</a></li>
-                                                                        <li><a href="user-privacy.html">Privacy</a></li>
+                                                                        <li><a href="{{ url_for('main.user') }}">user dashboard <span class="icon-trend label"><i class="fas fa-bolt"></i></span></a></li>
+                                                                       <li class="nav-item"><a class="nav-link active" href="">Dashboard</a></li>
+                                                                        <li class="nav-item"><a class="nav-link" href="{{ url_for('main.user_listing') }}">My Listing</a></li>
+                                                                        <li class="nav-item"><a class="nav-link" href="{{ url_for('main.user_create') }}">create property</a></li>
+                                                                        <li class="nav-item"><a class="nav-link" href="{{ url_for('auth.profile') }}">My profile</a></li>
+                                                                        <li class="nav-item"><a class="nav-link" href="user-payment">Cards & payment</a></li>
+                                                                        <li class="nav-item"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#logout" class="nav-link">Log out</a></li>
                                                                     </ul>
                                                                 </div>
                                                             </div>
@@ -534,7 +533,7 @@
 
     <!-- breadcrumb start -->
     <section class="breadcrumb-section p-0">
-        <img src="../assets/images/inner-background.jpg" class="bg-img img-fluid" alt="">
+        <img src="{{ url_for('static', filename='assets/images/inner-background.jpg') }}" class="bg-img img-fluid" alt="">
         <div class="container">
             <div class="breadcrumb-content">
                 <div>
@@ -560,16 +559,16 @@
                             <div class="user-profile">
                                 <div class="media">
                                     <div class="change-pic">
-                                        <img src="../assets/images/avatar/3.jpg" class="img-fluid update_img" alt="">
+                                        <img src="{{ url_for('static', filename='assets/images/avatar/3.jpg') }}" class="img-fluid update_img" alt="">
                                         <div class="change-hover">
                                             <button type="button" class="btn"><i data-feather="camera"></i></button>
                                             <input class="updateimg" type="file" name="img" onchange="readURL(this,0)">
                                         </div>
                                     </div>
                                     <div class="media-body">
-                                        <h5>Zack Lee</h5>
-                                        <h6 class="font-roboto">zackle@gmail.com</h6>
-                                        <h6 class="font-roboto mb-0">+91 846 - 547 - 210</h6>
+                                        <h5>{{ current_user.first_name }}</h5>
+                                        <h6 class="font-roboto">{{ current_user.email }}</h6>
+                                        <h6 class="font-roboto mb-0">{{ current_user.phone }}</h6>
                                     </div>
                                 </div>
                                 <div class="connected-social">
@@ -584,14 +583,11 @@
                             </div>
                             <div class="dashboard-list">
                                 <ul class="nav nav-tabs right-line-tab">
-                                    <li class="nav-item"><a class="nav-link" href="user-dashboard.html">Dashboard</a></li>
-                                    <li class="nav-item"><a class="nav-link active" href="user-listing.html">My Listing</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="user-create.html">create property</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="user-profile.html">My profile</a>
-                                    </li>
-                                    <li class="nav-item"><a class="nav-link" href="user-favourites.html">favourites</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="user-payment.html">Cards & payment</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="user-privacy.html">Privacy</a></li>
+                                    <li class="nav-item"><a class="nav-link active" href="{{ url_for('main.user') }}">Dashboard</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ url_for('main.user_listing') }}">My Listing</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ url_for('main.user_create') }}">create property</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ url_for('auth.profile') }}">My profile</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="user-payment">Cards & payment</a></li>
                                     <li class="nav-item"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#logout" class="nav-link">Log out</a></li>
                                 </ul>
                             </div>
@@ -720,18 +716,18 @@
                                                     <div class="property-image">
                                                         <div class="property-slider">
                                                             <a href="javascript:void(0)">
-                                                                <img src="../assets/images/property/10.jpg" class="bg-img" alt="">
+                                                                <img src="{{ url_for('static', filename='assets/images/property/10.jpg') }}" class="bg-img" alt="">
                                                             </a>
                                                             <a href="javascript:void(0)">
-                                                                <img src="../assets/images/property/5.jpg" class="bg-img" alt="">
+                                                                <img src="{{ url_for('static', filename='assets/images/property/5.jpg') }}" class="bg-img" alt="">
                                                                 
                                                             </a>
                                                             <a href="javascript:void(0)">
-                                                                <img src="../assets/images/property/3.jpg" class="bg-img" alt="">
+                                                                <img src="{{ url_for('static', filename='assets/images/property/3.jpg') }}" class="bg-img" alt="">
                                                                 
                                                             </a>
                                                             <a href="javascript:void(0)">
-                                                                <img src="../assets/images/property/4.jpg" class="bg-img" alt="">
+                                                                <img src="{{ url_for('static', filename='assets/images/property/4.jpg') }}" class="bg-img" alt="">
                                                                 
                                                             </a>
                                                         </div>
@@ -764,9 +760,9 @@
                                                         <p class="font-roboto">Elegant retreat in a quiet Coral Gables setting. This home provides wonderful entertaining spaces with a chef
                                                             kitchen opening…</p>
                                                         <ul>
-                                                            <li><img src="../assets/images/svg/icon/double-bed.svg" class="img-fluid" alt="">Bed : 4</li>
-                                                            <li><img src="../assets/images/svg/icon/bathroom.svg" class="img-fluid" alt="">Baths : 4</li>
-                                                            <li><img src="../assets/images/svg/icon/square-ruler-tool.svg" class="img-fluid ruler-tool" alt="">Sq Ft : 5000</li>
+                                                            <li><img src="{{ url_for('static', filename='assets/images/svg/icon/double-bed.svg') }}" class="img-fluid" alt="">Bed : 4</li>
+                                                            <li><img src="{{ url_for('static', filename='assets/images/svg/icon/bathroom.svg') }}" class="img-fluid" alt="">Baths : 4</li>
+                                                            <li><img src="{{ url_for('static', filename='assets/images/svg/icon/square-ruler-tool.svg') }}" class="img-fluid ruler-tool" alt="">Sq Ft : 5000</li>
                                                         </ul>
                                                         <div class="property-btn d-flex">
                                                             <span>July 18, 2022</span>
@@ -780,19 +776,19 @@
                                                     <div class="property-image">
                                                         <div class="property-slider">
                                                             <a href="javascript:void(0)">
-                                                                <img src="../assets/images/property/11.jpg" class="bg-img" alt="">
+                                                                <img src="{{ url_for('static', filename='assets/images/property/11.jpg') }}" class="bg-img" alt="">
                                                                 
                                                             </a>
                                                             <a href="javascript:void(0)">
-                                                                <img src="../assets/images/property/4.jpg" class="bg-img" alt="">
+                                                                <img src="{{ url_for('static', filename='assets/images/property/4.jpg') }}" class="bg-img" alt="">
                                                                 
                                                             </a>
                                                             <a href="javascript:void(0)">
-                                                                <img src="../assets/images/property/6.jpg" class="bg-img" alt="">
+                                                                <img src="{{ url_for('static', filename='assets/images/property/6.jpg') }}" class="bg-img" alt="">
                                                                 
                                                             </a>
                                                             <a href="javascript:void(0)">
-                                                                <img src="../assets/images/property/2.jpg" class="bg-img" alt="">
+                                                                <img src="{{ url_for('static', filename='assets/images/property/2.jpg') }}" class="bg-img" alt="">
                                                                 
                                                             </a>
                                                         </div>
@@ -824,9 +820,9 @@
                                                         <p class="font-roboto">Elegant retreat in a quiet Coral Gables setting. This home provides wonderful entertaining spaces with a chef
                                                             kitchen opening…</p>
                                                         <ul>
-                                                            <li><img src="../assets/images/svg/icon/double-bed.svg" class="img-fluid" alt="">Bed : 4</li>
-                                                            <li><img src="../assets/images/svg/icon/bathroom.svg" class="img-fluid" alt="">Baths : 4</li>
-                                                            <li><img src="../assets/images/svg/icon/square-ruler-tool.svg" class="img-fluid ruler-tool" alt="">Sq Ft : 5000</li>
+                                                            <li><img src="{{ url_for('static', filename='assets/images/svg/icon/double-bed.svg') }}" class="img-fluid" alt="">Bed : 4</li>
+                                                            <li><img src="{{ url_for('static', filename='assets/images/svg/icon/bathroom.svg') }}" class="img-fluid" alt="">Baths : 4</li>
+                                                            <li><img src="{{ url_for('static', filename='assets/images/svg/icon/square-ruler-tool.svg') }}" class="img-fluid ruler-tool" alt="">Sq Ft : 5000</li>
                                                         </ul>
                                                         <div class="property-btn d-flex">
                                                             <span>June 20, 2022</span>
@@ -835,25 +831,26 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            {% for property in page %}
                                             <div class="col-md-12">
                                                 <div class="property-box">
                                                     <div class="property-image">
                                                         <div class="property-slider">
                                                             <a href="javascript:void(0)">
-                                                                <img src="../assets/images/property/14.jpg" class="bg-img" alt="">
-                                                                
+                                                                <img src="{{ url_for('static', filename='assets/images/property/14.jpg') }}" class="bg-img" alt="">
+
                                                             </a>
                                                             <a href="javascript:void(0)">
-                                                                <img src="../assets/images/property/6.jpg" class="bg-img" alt="">
-                                                                
+                                                                <img src="{{ url_for('static', filename='assets/images/property/6.jpg') }}" class="bg-img" alt="">
+
                                                             </a>
                                                             <a href="javascript:void(0)">
-                                                                <img src="../assets/images/property/10.jpg" class="bg-img" alt="">
-                                                                
+                                                                <img src="{{ url_for('static', filename='assets/images/property/10.jpg') }}" class="bg-img" alt="">
+
                                                             </a>
                                                             <a href="javascript:void(0)">
-                                                                <img src="../assets/images/property/9.jpg" class="bg-img" alt="">
-                                                                
+                                                                <img src="{{ url_for('static', filename='assets/images/property/9.jpg') }}" class="bg-img" alt="">
+
                                                             </a>
                                                         </div>
                                                         <div class="labels-left">
@@ -865,37 +862,37 @@
                                                         <div class="seen-data">
                                                             <i data-feather="camera"></i>
                                                             <span>25</span>
-                                                        </div>                 
+                                                        </div>
                                                         <div class="overlay-property-box">
-                                                            <a href="compare.html" class="effect-round" data-bs-toggle="tooltip" data-bs-placement="left" title="Compare"> 
+                                                            <a href="#" class="effect-round" data-bs-toggle="tooltip" data-bs-placement="left" title="Compare">
                                                                 <i data-feather="shuffle"></i>
                                                             </a>
                                                             <a href="user-favourites.html" class="effect-round like" data-bs-toggle="tooltip" data-bs-placement="left" title="wishlist">
-                                                                <i data-feather="heart"></i>                                                                               
+                                                                <i data-feather="heart"></i>
                                                             </a>
                                                         </div>
                                                     </div>
                                                     <div class="property-details">
-                                                        <span class="font-roboto">usa</span>
-                                                        <div class="my-listing font-roboto">Added 2 Hour ago</div>
+                                                        <span class="font-roboto">{{ property.country }}</span>
+                                                        <div class="my-listing font-roboto">{{ dt.strptime(str(property.join_time)[:-7], '%H:%M:%S').time() }}</div>
                                                         <a href="single-property-8.html">
-                                                            <h3>Merrick in Spring Way</h3>
+                                                            <h3>Home in {{ property.city }}</h3>
                                                         </a>
-                                                        <h6>$8654.00*</h6>
-                                                        <p class="font-roboto">Elegant retreat in a quiet Coral Gables setting. This home provides wonderful entertaining spaces with a chef
-                                                            kitchen opening…</p>
+                                                        <h6>${{ property.property_price }}</h6>
+                                                        <p class="font-roboto">{{ property.description }}…</p>
                                                         <ul>
-                                                            <li><img src="../assets/images/svg/icon/double-bed.svg" class="img-fluid" alt="">Bed : 4</li>
-                                                            <li><img src="../assets/images/svg/icon/bathroom.svg" class="img-fluid" alt="">Baths : 4</li>
-                                                            <li><img src="../assets/images/svg/icon/square-ruler-tool.svg" class="img-fluid ruler-tool" alt="">Sq Ft : 5000</li>
+                                                            <li><img src="{{ url_for('static', filename='assets/images/svg/icon/double-bed.svg') }}" class="img-fluid" alt="">Bed : {{ property.beds }}</li>
+                                                            <li><img src="{{ url_for('static', filename='assets/images/svg/icon/bathroom.svg') }}" class="img-fluid" alt="">Baths : {{ property.baths }}</li>
+                                                            <li><img src="{{ url_for('static', filename='assets/images/svg/icon/square-ruler-tool.svg') }}" class="img-fluid ruler-tool" alt="">Sq Ft : {{ property.area }}</li>
                                                         </ul>
                                                         <div class="property-btn d-flex">
-                                                            <span>August 4, 2022</span>
+                                                            <span>{{ property.join_date }}</span>
                                                             <button type="button" onclick="document.location='single-property-8.html'" class="btn btn-dashed btn-pill color-2">Details</button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                            {% endfor %}
                                         </div>
                                         <nav class="theme-pagination">
                                             <ul class="pagination">
@@ -933,8 +930,8 @@
                 <div class="row">
                     <div class="col-xl-3">
                         <div class="footer-details text-center">
-                            <a href="../index.html">
-                                <img src="../assets/images/logo/footer-logo.png" alt="">
+                            <a href="index.html">
+                                <img src="{{ url_for('static', filename='assets/images/logo/footer-logo.png') }}" alt="">
                             </a>
                             <p>Elegant retreat in a quiet Coral Gables setting. This home provides
                                 wonderful entertaining spaces with a chef kitchen opening
@@ -1051,7 +1048,7 @@
                                         <div class="media">
                                             <a href="blog-detail-left-sidebar.html">
                                                 <div class="img-overlay">
-                                                        <img src="../assets/images/footer/1.jpg" alt="">
+                                                        <img src="{{ url_for('static', filename='assets/images/footer/1.jpg') }}" alt="">
                                                 </div>
                                             </a>
                                             <div class="media-body">
@@ -1064,7 +1061,7 @@
                                         <div class="media">
                                             <a href="blog-detail-left-sidebar.html">
                                                 <div class="img-overlay">
-                                                        <img src="../assets/images/footer/2.jpg" alt="">
+                                                        <img src="{{ url_for('static', filename='assets/images/footer/2.jpg') }}" alt="">
                                                 </div>
                                             </a>
                                             <div class="media-body">
@@ -1078,7 +1075,7 @@
                                         <div class="media">
                                             <a href="blog-detail-left-sidebar.html">
                                                 <div class="img-overlay">
-                                                        <img src="../assets/images/footer/3.jpg" alt="">
+                                                        <img src="{{ url_for('static', filename='assets/images/footer/3.jpg') }}" alt="">
                                                 </div>
                                             </a>
                                             <div class="media-body">
@@ -1091,7 +1088,7 @@
                                         <div class="media">
                                             <a href="blog-detail-left-sidebar.html">
                                                 <div class="img-overlay">
-                                                        <img src="../assets/images/footer/4.jpg" alt="">
+                                                        <img src="{{ url_for('static', filename='assets/images/footer/4.jpg') }}" alt="">
                                                 </div>
                                             </a>
                                             <div class="media-body">
@@ -1153,7 +1150,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-dashed color-2 btn-pill" data-bs-dismiss="modal">no</button>
-                    <button type="button" onclick="document.location='layout-2.html'" class="btn btn-gradient color-2 btn-pill">yes</button>
+                    <a href="{{ url_for('auth.logout') }}"><button type="button" onclick="document.location='layout-2'" class="btn btn-gradient color-2 btn-pill">yes</button></a>
                 </div>
             </div>
         </div>
@@ -1213,38 +1210,38 @@
     <!-- customizer end -->
 
     <!-- latest jquery-->
-    <script src="../assets/js/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery-3.6.0.min.js') }}"></script>
 
     <!-- popper js-->
-    <script src="../assets/js/popper.min.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/popper.min.js') }}"></script>
 
     <!-- feather icon js-->
-    <script src="../assets/js/feather-icon/feather.min.js"></script>
-    <script src="../assets/js/feather-icon/feather-icon.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/feather-icon/feather.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/feather-icon/feather-icon.js') }}"></script>
 
     <!-- magnific js -->
-    <script src="../assets/js/jquery.magnific-popup.js"></script>
-    <script src="../assets/js/zoom-gallery.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.magnific-popup.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/zoom-gallery.js') }}"></script>
 
     <!-- slick js -->
-    <script src="../assets/js/slick.js"></script>
-    <script src="../assets/js/slick-animation.min.js"></script>
-    <script src="../assets/js/custom-slick.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/slick.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/slick-animation.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/custom-slick.js') }}"></script>
 
     <!-- Bootstrap js-->
-    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/bootstrap.bundle.min.js') }}"></script>
 
     <!-- Template js-->
-    <script src="../assets/js/script.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/script.js') }}"></script>
 
     <!-- Customizer js-->
-    <script src="../assets/js/customizer.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/customizer.js') }}"></script>
 
     <!-- wow js-->
-    <script src="../assets/js/wow.min.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/wow.min.js') }}"></script>
 
     <!-- Color-picker js-->
-    <script src="../assets/js/color/template-color.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/color/template-color.js') }}"></script>
 
 </body>
 
