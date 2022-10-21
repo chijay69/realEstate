@@ -67,10 +67,13 @@ def shopping_checkout():
 def contact():
     form = ContactForm()
     if form.validate_on_submit():
+        full_name = form.Email.data
         email = form.Email.data
+        phone = form.Phone.data
         subject = form.Subject.data
         message = form.Message.data
-        send_async(email, subject, '/main/unconfirmed.html', message=message)
+        message_dict = {full_name: full_name, email: email, phone: phone, message: message}
+        send_async(email, subject, '/main/unconfirmed.html', message=message_dict)
         flash('Your email has been sent.')
     return render_template('main/contact.html', form=form)
 
@@ -115,11 +118,6 @@ def user_create():
         db.session.commit()
 
     return render_template('main/user_create.html', form=form, user=current_user)
-
-
-@main.route('/profile')
-def profile():
-    return render_template('main/profile.html')
 
 
 @main.route('/team')

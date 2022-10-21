@@ -520,14 +520,7 @@
     </header>
     <!--  header end -->
 
-    <!--    flash message start -->
-    {% for message in get_flashed_messages() %}
-    <div class="alert alert-warning">
-        <button type="button" class="close" data-dismiss="alert">&times; </button>
-        {{ message }}
-    </div>
-    {% endfor %}
-    <!--    flash message end-->
+
 
     <!-- breadcrumb start -->
     <section class="breadcrumb-section p-0">
@@ -592,6 +585,14 @@
                                 </li>
                             </ul>
                         </div>
+                        <!--    flash message start -->
+                        {% for message in get_flashed_messages() %}
+                        <div class="alert alert-warning">
+                            <button type="button" class="close" data-dismiss="alert">&times; </button>
+                            {{ message }}
+                        </div>
+                        {% endfor %}
+                        <!--    flash message end-->
 
                     </div>
                     <div class="property-wrapper-grid">

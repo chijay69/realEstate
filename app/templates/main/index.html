@@ -136,15 +136,6 @@
     </header>
     <!--  header end -->
 
-    <!--    flash message start -->
-    {% for message in get_flashed_messages() %}
-    <div class="alert alert-warning">
-        <button type="button" class="close" data-dismiss="alert">&times; </button>
-        {{ message }}
-    </div>
-    {% endfor %}
-    <!--    flash message end-->
-
     <!-- home section start -->
     <section class="home-section layout-1 layout-6">
         <div class="home-main">
@@ -332,7 +323,14 @@
         </div>
     </section>
     <!-- home section end -->
-
+    <!--    flash message start -->
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times; </button>
+        {{ message }}
+    </div>
+    {% endfor %}
+    <!--    flash message end-->
     <!-- property section start -->
     <section class="property-section slick-between slick-shadow property-color-6">
         <div class="container">

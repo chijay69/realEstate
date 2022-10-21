@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Question</title>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <!-- Section Title Starts -->
+            <div class="row text-center">
+                <h2 class="title-head hidden-xs">Question for <span>Admin</span></h2>
+                 <p class="info-form">Hello Admin!</p>
+            </div>
+            <!-- Section Title Ends -->
+            <!-- Form Starts -->
+            <p><b><strong>USERS INFO:</strong></b></p>
+            <p class="h4">{{ message.full_name }}</p>
+            <p class="h4">{{ message.phone }}</p>
+            <p class="h4">{{ message.email }}</p>
+            <br>
+            <br>
+            <p><b><strong>USERS MESSAGE:</strong></b></p>
+            <p>{{ message.message }}</p>
+            <!-- Form Ends -->
+        </div>
+    </div>
+</body>
+</html>

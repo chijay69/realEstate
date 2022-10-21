@@ -49,15 +49,15 @@ class ChangePasswordForm(FlaskForm):
     password = PasswordField('Current password', validators=[DataRequired()])
     password1 = PasswordField('Password', validators=[DataRequired(), EqualTo('password2', message='Passwords must '
                                                                                                    'match.')])
-    password2 = PasswordField('Confirm password', validators=[DataRequired()])
-    submit = SubmitField('Update')
+    password2 = PasswordField('Confirm your password', validators=[DataRequired()])
+    submit = SubmitField('Save changes')
 
 
 class ChangeEmailForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     email1 = StringField('Email', validators=[DataRequired(), Email(), EqualTo('email2', message='Emails must match')])
     email2 = StringField('Email', validators=[DataRequired(), Email()])
-    submit = SubmitField('Update')
+    submit = SubmitField('Save changes')
 
 
 class ProfileForm(FlaskForm):
@@ -66,4 +66,4 @@ class ProfileForm(FlaskForm):
     address = StringField('Address', validators=[DataRequired()])
     city = StringField('City', validators=[DataRequired()])
     state = StringField('State', validators=[DataRequired()])
-    submit = SubmitField('Update')
+    submit = SubmitField('Save changes')

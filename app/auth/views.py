@@ -132,32 +132,43 @@ def reset_password(token):
 @auth.route('/profile')
 @login_required
 def profile():
-    user = User.query.filter_by(email=current_user.email).first_or_404()
     password_form = ChangePasswordForm()
     email_form = ChangeEmailForm()
-    return render_template('auth/profile.html', email_form=email_form, password_form=password_form, user=user)
+    profile_form = ProfileForm()
+    return render_template('auth/profile.html', email_form=email_form, password_form=password_form, profile_form=profile_form)
 
 
+@login_required
 @auth.route('/email', methods=['POST'])
 def email():
     password_form = ChangePasswordForm()
     email_form = ChangeEmailForm()
 
     if email_form.validate_on_submit():
-        pass
-        ...  # handle the register form
+        u = User.query.filter_by(email=email_form.email.data).first()
+        u.email = email_form.email2.data
+        db.session.add(u)
+        db.session.commit()
+        flash('Profile updated successfully')
+        # handle the register form
     # render the same template to pass the error message
     # or pass `form.errors` with `flash()` or `session` then redirect to /
     return render_template('auth/profile.html', email_form=email_form, password_form=password_form)
 
 
+@login_required
 @auth.route('/passwd', methods=['POST'])
 def passwd():
     password_form = ChangePasswordForm()
     email_form = ChangeEmailForm()
+
     if password_form.validate_on_submit():
-        pass
-        ...  # handle the login form
+        u = User.query.filter_by(email=current_user.email).first()
+        u.password_hash = password_form.password2.data
+        db.session.add(u)
+        db.session.commit()
+        flash('Profile updated successfully')
+        # handle the login form
     # render the same template to pass the error message
     # or pass `form.errors` with `flash()` or `session` then redirect to /
     return render_template('auth/profile.html', email_form=email_form, password_form=password_form)

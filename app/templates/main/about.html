@@ -520,14 +520,7 @@
     </header>
     <!--  header end -->
 
-    <!--    flash message start -->
-    {% for message in get_flashed_messages() %}
-    <div class="alert alert-warning">
-        <button type="button" class="close" data-dismiss="alert">&times; </button>
-        {{ message }}
-    </div>
-    {% endfor %}
-    <!--    flash message end-->
+
 
     <!-- breadcrumb start -->
     <section class="breadcrumb-section p-0">
@@ -547,6 +540,8 @@
         </div>
     </section>
     <!-- breadcrumb end -->
+
+
 
     <!-- About us section start -->
     <section class="about-main ratio_36">
@@ -603,6 +598,15 @@
         </div>
     </section>
     <!-- About us section end -->
+
+     <!--    flash message start -->
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times; </button>
+        {{ message }}
+    </div>
+    {% endfor %}
+    <!--    flash message end-->
 
     <!-- Why choose us section start -->
     <section class="why-choose ratio_40 service-section service-1 bg-light">

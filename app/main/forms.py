@@ -6,12 +6,12 @@ from .read import get_country_dict
 
 
 class ContactForm(FlaskForm):
-    First_name = StringField('First Name', validators=[Length(0, 64)])
-    Last_name = StringField('Last Name', validators=[Length(0, 64)])
+    Full_name = StringField('Full Name', validators=[Length(0, 64)])
+    Phone = IntegerField('Phone Number', validators=[Length(0, 64)])
     Email = StringField('Email', validators=[Length(1, 64), Email()])
     Subject = StringField('Subject', validators=[Length(1, 64)])
     Message = TextAreaField('Messages')
-    submit = SubmitField('Send Message')
+    submit = SubmitField('Send Your Message')
 
 
 class EditProfileAdminForm(FlaskForm):
