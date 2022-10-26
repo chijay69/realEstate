@@ -11,6 +11,9 @@
     <link rel="icon" href="{{ url_for('static', filename='assets/images/favicon.png') }}" type="image/x-icon">
     <title>User Payment</title>
 
+    <!--    bootstrap css-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
    <!--Google font-->
     <link href="{{ url_for('static', filename='css?family=Montserrat:400,400i,500,500i,600,600i,700,700i,800,800i') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css-1?family=Roboto:400,400i,500,500i,700,700i&display=swap') }}" rel="stylesheet">
@@ -659,6 +662,10 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="edit-card">
+                                                    <a data-bs-toggle="modal" data-bs-target="#edit-card" href="javascript:void(0)">edit</a>
+                                                    <a href="javascript:void(0)">delete</a>
+                                                </div>
                                             </div>
                                         </div>
                                         {% endif %}
@@ -868,7 +875,7 @@
                 <div class="row">
                     <div class="col-xl-6 col-md-6">
                         <div class="copy-right">
-                            <p class="mb-0">Copyright 2022, All Right Reserved</p>
+                            <p class="mb-0">Copyright 2022, All Right Reserved Sheltos</p>
                         </div>
                     </div>
                     <div class="col-xl-6 col-md-6 text-end">
@@ -906,12 +913,13 @@
                 <div class="modal-body">
                     <form>
                         <div class="row gx-3">
+
                             <div class="form-group col-md-6">
                                 <label for="gender">payment type</label>
                                 <select id="gender" class="form-control">
-                                    <option selected="">Choose payment type</option>
-                                    <option disabled>Bank</option>
-                                    <option autofocus>Card</option>
+                                    <option selected="" class="">Choose payment type</option>
+                                    <option disabled="disabled" data-toggle="tooltip" data-placement="top" title="This option is unavailable in your country">Bank</option>
+                                    <option>Card</option>
                                 </select>
                             </div>
                         </div>
@@ -1162,7 +1170,8 @@
     </div>
     <!-- customizer end -->
 
-
+    <!--    bootstrap js-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
     <!-- latest jquery-->
     <script src="{{ url_for('static', filename='assets/js/jquery-3.6.0.min.js') }}"></script>
@@ -1200,6 +1209,7 @@
          $('#edit-profile').modal('show');
      });
     </script>
+
 
 </body>
 
