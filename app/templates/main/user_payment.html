@@ -659,10 +659,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="edit-card">
-                                                    <a data-bs-toggle="modal" data-bs-target="#edit-card" href="javascript:void(0)">edit</a>
-                                                    <a href="javascript:void(0)">delete</a>
-                                                </div>
                                             </div>
                                         </div>
                                         {% endif %}
@@ -872,7 +868,7 @@
                 <div class="row">
                     <div class="col-xl-6 col-md-6">
                         <div class="copy-right">
-                            <p class="mb-0">Copyright 2022, All Right Reserved Sheltos</p>
+                            <p class="mb-0">Copyright 2022, All Right Reserved</p>
                         </div>
                     </div>
                     <div class="col-xl-6 col-md-6 text-end">
@@ -902,7 +898,7 @@
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Edit Profile</h5>
+                    <h5 class="modal-title">Select Payment Method</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -911,46 +907,18 @@
                     <form>
                         <div class="row gx-3">
                             <div class="form-group col-md-6">
-                                <label for="first">first name</label>
-                                <input type="text" class="form-control" id="first" placeholder="first name">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="last">last name</label>
-                                <input type="text" class="form-control" id="last" placeholder="last name">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="gender">gender</label>
+                                <label for="gender">payment type</label>
                                 <select id="gender" class="form-control">
-                                    <option selected="">Choose...</option>
-                                    <option>female</option>
-                                    <option>male</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Birthday</label>
-                                <input class="form-control" placeholder="18 april" id="datepicker">
-                            </div>
-                            <div class="form-group col-12">
-                                <label for="inputAddress">Address</label>
-                                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputCity">City</label>
-                                <input type="text" class="form-control" id="inputCity">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputState">State</label>
-                                <select id="inputState" class="form-control">
-                                    <option selected="">Choose...</option>
-                                    <option>...</option>
+                                    <option selected="">Choose payment type</option>
+                                    <option disabled>Bank</option>
+                                    <option autofocus>Card</option>
                                 </select>
                             </div>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-dashed color-2 btn-pill" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-gradient color-2 btn-pill" data-bs-dismiss="modal">Save changes</button>
+                    <button type="button" class="btn btn-dashed color-2 btn-pill" data-bs-dismiss="modal">Select</button>
                 </div>
             </div>
         </div>
@@ -1104,7 +1072,7 @@
                                 {{ form.exp_date(class="form-control", id="a-e") }}
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="a-c">cvv</label>submit
+                                <label for="a-c">cvv</label>
                                 {{ form.cvv(class="form-control", id="a-c") }}
                             </div>
                         </div>
@@ -1194,6 +1162,8 @@
     </div>
     <!-- customizer end -->
 
+
+
     <!-- latest jquery-->
     <script src="{{ url_for('static', filename='assets/js/jquery-3.6.0.min.js') }}"></script>
 
@@ -1223,6 +1193,13 @@
 
     <!-- Color-picker js-->
     <script src="{{ url_for('static', filename='assets/js/color/template-color.js') }}"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script>
+    <script type="text/javascript">
+     $(document).ready(function() {
+         $('#edit-profile').modal('show');
+     });
+    </script>
 
 </body>
 
