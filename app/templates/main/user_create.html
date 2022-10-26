@@ -378,13 +378,11 @@
                                                                 </div>
                                                                 <div class="submenu-content opensubmegamenu">
                                                                     <ul class="list">
-                                                                        <li><a href="{{ url_for('main.user') }}">user dashboard <span class="icon-trend label"><i class="fas fa-bolt"></i></span></a></li>
-                                                                       <li class="nav-item"><a class="nav-link active" href="">Dashboard</a></li>
                                                                         <li class="nav-item"><a class="nav-link" href="{{ url_for('main.user_listing') }}">My Listing</a></li>
                                                                         <li class="nav-item"><a class="nav-link" href="{{ url_for('main.user_create') }}">create property</a></li>
                                                                         <li class="nav-item"><a class="nav-link" href="{{ url_for('auth.profile') }}">My profile</a></li>
-                                                                        <li class="nav-item"><a class="nav-link" href="user-payment">Cards & payment</a></li>
-                                                                        <li class="nav-item"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#logout" class="nav-link">Log out</a></li>
+                                                                        <li class="nav-item"><a class="nav-link" href="{{ url_for('main.user_payment') }}">Cards & payment</a></li>
+                                                                        <li class="nav-item"><a href="{{ url_for('auth.logout') }}" data-bs-toggle="modal" data-bs-target="#logout" class="nav-link">Log out</a></li>
                                                                     </ul>
                                                                 </div>
                                                             </div>
@@ -563,9 +561,9 @@
                                         </div>
                                     </div>
                                     <div class="media-body">
-                                        <h5>{{ user.first_name|d('john', true) }}</h5>
-                                        <h6 class="font-roboto">{{ user.email|d('jhondoe@abc.com', true) }}</h6>
-                                        <h6 class="font-roboto mb-0">{{ user.phone|d('+91 846 - 547 - 210', true) }}</h6>
+                                        <h5>{{ current_user.first_name|d('john', true) }}</h5>
+                                        <h6 class="font-roboto">{{ current_user.email|d('jhondoe@abc.com', true) }}</h6>
+                                        <h6 class="font-roboto mb-0">{{ current_user.phone|d('+91 846 - 547 - 210', true) }}</h6>
                                     </div>
                                 </div>
                                 <div class="connected-social">
@@ -584,9 +582,8 @@
                                     <li class="nav-item"><a class="nav-link" href="{{ url_for('main.user_listing') }}">My Listing</a></li>
                                     <li class="nav-item"><a class="nav-link active" href="{{ url_for('main.user_create') }}">create property</a></li>
                                     <li class="nav-item"><a class="nav-link" href="{{ url_for('auth.profile') }}">My profile</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="user-payment">Cards & payment</a></li>
-                                    <li class="nav-item"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#logout" class="nav-link">Log out</a></li>
-                                </ul>
+                                    <li class="nav-item"><a class="nav-link" href="{{ url_for('main.user_payment') }}">Cards & payment</a></li>
+                                    <li class="nav-item"><a href="{{ url_for('auth.logout') }}" data-bs-toggle="modal" data-bs-target="#logout" class="nav-link">Log out</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -601,7 +598,8 @@
                                     <div class="create-property-form">
                                         <div class="form-inputs">
                                             <h6>Basic information</h6>
-                                            <form class="row gx-2 gx-sm-3">
+                                            <form method="post" class="row gx-2 gx-sm-3">
+                                                {{ form.hidden_tag() }}
                                                 <div class="form-group col-sm-4">
                                                     <label>Property Type</label>
                                                     {{ form.property_type(class="form-control", placeholder="villa")  }}
@@ -647,6 +645,7 @@
                                         <div class="form-inputs">
                                             <h6>Address</h6>
                                             <form class="row gx-3">
+                                                {{ form.hidden_tag() }}
                                                 <div class="form-group col-sm-6">
                                                     <label>Address</label>address
                                                     {{ form.address(class="form-control", placeholder="Address of your property")  }}
@@ -677,7 +676,6 @@
 <!--                                                  <h6>Drop files here or click to upload.</h6><span class="note needsclick">(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</span>-->
 <!--                                                </div>-->
 <!--                                              </form>-->
-                                              <form class="row gx-3">
                                                     <div class="form-group col-sm-12">
                                                         <label>Video (mp4)</label>
                                                         {{ form.video(class="form-control", placeholder="mp4 video link")  }}
@@ -698,7 +696,6 @@
                                                             </label>
                                                         </div>
                                                     </div>
-                                              </form>
                                         </div>
                                         <div class="text-end">
                                             <button type="submit" class="btn btn-gradient color-2 btn-pill">Add property</button>

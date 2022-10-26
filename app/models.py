@@ -1,12 +1,13 @@
-from datetime import datetime, date, time
+import enum
+from datetime import datetime
+
 from flask import current_app
 from flask_login import UserMixin, current_user
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
+import bcrypt
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from app import db, login_manager
-
-import enum
 
 
 class PropertyStatusEnum(enum.Enum):
@@ -14,11 +15,16 @@ class PropertyStatusEnum(enum.Enum):
     sale = 'sale'
 
 
+class CardTypeEnum(enum.Enum):
+    debit = 'debit card'
+    credit = 'credit card'
+
+
 class Property(db.Model):
     __tablename__ = 'properties'
     id = db.Column(db.Integer, primary_key=True)
     property_type = db.Column(db.String(64), index=True)
-    property_status = employment_status = db.Column(db.Enum(PropertyStatusEnum), default=PropertyStatusEnum.rent, nullable=True),
+    property_status = db.Column(db.Enum(PropertyStatusEnum))
     property_price = db.Column(db.Float)
     max_rooms = db.Column(db.Integer)
     beds = db.Column(db.Integer)
@@ -39,9 +45,27 @@ class Property(db.Model):
     wifi = db.Column(db.Boolean)
     parking = db.Column(db.Boolean)
     ac = db.Column(db.Boolean)
-    join_time = db.Column(db.DateTime(), default=datetime.now())
-    join_date = db.Column(db.DateTime(), default=datetime.now())
+    join_time = db.Column(db.DateTime(), default=datetime.utcnow(), index=True)
+    join_date = db.Column(db.DateTime(), default=datetime.utcnow(), index=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+
+class CreditCard(db.Model):
+    __tablename__ = 'credit_cards'
+    id = db.Column(db.Integer, primary_key=True)
+    card_type = db.Column(db.Enum(CardTypeEnum))
+    card_number = db.Column(db.BigInteger)
+    card_holder = db.Column(db.String(128))
+    exp_date = db.Column(db.Date)
+    cvv = db.Column(db.Integer)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), unique=True)
+
+
+def check_hash_func(password_hash, password):
+    try:
+        bcrypt.checkpw(password, password_hash)
+    except:
+        raise ValueError
 
 
 class User(UserMixin, db.Model):
@@ -53,17 +77,14 @@ class User(UserMixin, db.Model):
     address = db.Column(db.String(128), nullable=True)
     city = db.Column(db.String(64), nullable=True)
     state = db.Column(db.String(64), nullable=True)
-    password_hash = db.Column(db.String(128))
+    password_hash = db.Column(db.String(150))
+    joined_at = db.Column(db.DateTime(), default=datetime.utcnow(), index=True)
     properties = db.relationship('Property', backref='user', lazy='dynamic')
+    credit_cards = db.relationship('CreditCard', backref=db.backref('user', uselist=False),
+                                   cascade='all, delete-orphan', uselist=False)
 
-    # def __init__(self, **kwargs):
-    #     super(User, self).__init__(**kwargs)
-    #     if self.btc_balance is None:
-    #         self.btc_balance = 0.0
-    #     if self.cash_balance is None:
-    #         self.cash_balance = 0.0
-    #     if self.level is None:
-    #         self.level = 'Starter'
+    def __init__(self, **kwargs):
+        super(User, self).__init__(**kwargs)
 
     @property
     def password(self):
@@ -104,6 +125,3 @@ class User(UserMixin, db.Model):
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
-
-
-

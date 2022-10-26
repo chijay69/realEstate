@@ -550,7 +550,8 @@
                         <div class="title-3 text-start">
                             <h2>Let's Get In Touch</h2>
                         </div>
-                        <form class="row gx-3 get-in-touch">
+                        <form method="post" class="row gx-3 get-in-touch">
+                            {{ form.hidden_tag() }}
                             <div class="form-group col-md-12">
                                 <div class="input-group">
                                     <div class="input-group-prepend">

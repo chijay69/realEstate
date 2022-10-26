@@ -18,14 +18,22 @@ def secret():
 
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
+    print('im in')
     form = RegistrationForm()
+    print('form in')
     if form.validate_on_submit():
-        user = User(email=form.email.data, first_name=form.firstname.data, last_name=form.lastname.data,
-                    password=form.password.data)
+        print('form validated')
+        user = User(email=form.email.data, first_name=form.firstname.data, last_name=form.lastname.data)
+        print('user created')
+        user.password = form.password1.data
+        print('passwd validated')
         db.session.add(user)
         db.session.commit()
+        print('Registration done')
         flash('Registration Successful!')
-        return redirect(url_for('main.index'))
+        return redirect(url_for('auth.login'))
+    flash('Registration Unsuccessful')
+    print('form not validated')
     return render_template('auth/register.html', form=form)
 
 

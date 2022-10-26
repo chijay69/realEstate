@@ -16,6 +16,11 @@
     <link href="{{ url_for('static', filename='css-1?family=Roboto:400,400i,500,500i,700,700i&display=swap') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css-2?family=Rubik:400,400i,500,500i,700,700i') }}" rel="stylesheet">
 
+    <!--Bootstrap js-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
     <!-- Template css -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/bootstrap.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/color1.css') }}">
@@ -537,13 +542,16 @@
     <!-- breadcrumb end -->
 
     <!--    flash message start -->
+
     {% for message in get_flashed_messages() %}
-    <div class="alert alert-warning">
-        <button type="button" class="close" data-dismiss="alert">&times; </button>
-        {{ message }}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+            <strong>{{ message }}</strong>
+        </button>
     </div>
     {% endfor %}
-    <!--    flash message end-->
+    <!--flash message end-->
 
     <!-- section start -->
     <section>
@@ -554,7 +562,8 @@
                         <div class="title-3 text-start">
                             <h2>Sign up</h2>
                         </div>
-                        <form>
+                        <form method="post">
+                            {{ form.hidden_tag() }}
                             <div class="form-group">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -596,6 +605,24 @@
                                     <div class="input-group-apend">
                                         <div class="input-group-text">
                                             <i id="pwd-icon" class="far fa-eye-slash"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="important-note">
+                                    password should be a minimum of 8 characters and should contains letters and numbers
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i data-feather="lock"></i>
+                                        </div>
+                                    </div>
+                                    {{ form.password1(class="form-control", placeholder="Confirm Password") }}
+                                    <div class="input-group-apend">
+                                        <div class="input-group-text">
+                                            <i class="far fa-eye-slash"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -910,6 +937,9 @@
     </div>
     <!-- customizer end -->
 
+    <script>
+        $('.alert').alert()
+    </script>
     <!-- latest jquery-->
     <script src="{{ url_for('static', filename='assets/js/jquery-3.6.0.min.js') }}"></script>
 

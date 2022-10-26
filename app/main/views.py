@@ -1,17 +1,16 @@
 import os
-
 from datetime import datetime
 
 from flask import render_template, redirect, flash, url_for, request, send_from_directory, current_app
 from flask_login import login_required, current_user
 
 from . import main
-from .forms import ContactForm, EditProfileAdminForm, Paypal, BankForm, BitCoin, MyPropertyForm
+from .elapsed_time import elapsed_time
+from .forms import ContactForm, EditProfileAdminForm, Paypal, BankForm, BitCoin, MyPropertyForm, CreditCardForm, \
+    EditCreditCardForm
 from .. import db
 from ..emails import send_async
-from ..models import User, Property
-
-from .elapsed_time import elapsed_time, to_string
+from ..models import User, Property, CreditCard
 
 
 @main.after_request
@@ -88,7 +87,7 @@ def upgrade():
     return render_template('main/upgrade.html')
 
 
-@main.route('/user_create')
+@main.route('/user_create', methods=['GET', 'POST'])
 def user_create():
     form = MyPropertyForm()
     if form.validate_on_submit():
@@ -233,6 +232,67 @@ def user_listing():
     page = Property.query.filter_by(user_id=current_user.id).paginate(
         page=1, per_page=4, error_out=False)
     return render_template("main/user_listing.html", page=page.items, el=elapsed_time, dt=datetime, str=str)
+
+
+@login_required
+@main.route('/user_payment', methods=['GET'])
+def user_payment():
+    form = CreditCardForm()
+    my_card = CreditCard.query.filter_by(user_id=current_user.id).first()
+    return render_template('main/user_payment.html', card=my_card, form=form)
+
+
+@login_required
+@main.route('/add_card', methods=['GET', 'POST'])
+def add_card():
+    form = CreditCardForm()
+    if form.validate_on_submit():
+        card = CreditCard(
+            card_type=form.card_type.data,
+            card_number=form.card_number.data,
+            card_holder=form.card_holder.data,
+            exp_date=form.exp_date.data,
+            cvv=form.cvv.data
+        )
+        card.user_id = current_user.id
+        db.session.add(card)
+        db.session.commit()
+        flash('Card added')
+    return render_template('main/user_payment.html', form=form)
+
+
+@login_required
+@main.route('/edit_card', methods=['POST'])
+def edit_card():
+    form = CreditCardForm()
+    my_card = CreditCard.query.filter_by(user_id=current_user.id).first_or_404()
+    if my_card:
+        if form.validate_on_submit():
+            card = EditCreditCardForm(
+                card_number=form.card_number.data,
+                card_holder=form.card_holder.data,
+                exp_date=form.exp_date.data,
+                cvv=form.cvv.data
+            )
+            card.user_id = current_user.id
+            db.session.add(card)
+            db.session.commit()
+            flash('Card added')
+    return render_template('main/user_payment.html', form=form)
+
+
+@login_required
+@main.route('/card_delete')
+def card_delete():
+    if current_user.is_anonymous:
+        flash('user must be logged in')
+        return redirect(url_for('auth.login'))
+    else:
+        my_card = CreditCard.query.filter_by(user_id=current_user.id).first_or_404()
+        db.session.delete(my_card)
+        db.session.commit()
+        return redirect(url_for('user_payment'))
+
 
 #
 # @main.route('/profile')

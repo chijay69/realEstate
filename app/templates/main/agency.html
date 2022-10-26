@@ -979,7 +979,7 @@
                                         <div class="form-group">
                                             <textarea placeholder="Message" class="form-control" rows="3"></textarea>
                                         </div>
-                                        <button type="submit" onclick="document.location='user-listing.html'" class="btn btn-gradient color-2 btn-block btn-pill">Submit
+                                        <button type="submit" onclick="document.location='{{ url_for('main.user_listing') }}'" class="btn btn-gradient color-2 btn-block btn-pill">Submit
                                             Request</button>
                                     </form>
                                 </div>
@@ -1161,7 +1161,7 @@
                                         <p class="mb-0">
                                             Real estate investing involves the purchase, Improvement of realty, management and sale or rental of real estate for profit.
                                         </p>
-                                        <form>
+                                        <form method="post">
                                             <div class="input-group">
                                                 <input type="email" class="form-control" placeholder="Email Address" required="">
                                                 <span class="input-group-apend">

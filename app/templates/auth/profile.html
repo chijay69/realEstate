@@ -382,12 +382,11 @@
                                                                 <div class="submenu-content opensubmegamenu">
                                                                     <ul class="list">
                                                                         <li><a href="{{ url_for('main.user') }}">user dashboard <span class="icon-trend label"><i class="fas fa-bolt"></i></span></a></li>
-                                                                       <li class="nav-item"><a class="nav-link active" href="">Dashboard</a></li>
                                                                         <li class="nav-item"><a class="nav-link" href="{{ url_for('main.user_listing') }}">My Listing</a></li>
                                                                         <li class="nav-item"><a class="nav-link" href="{{ url_for('main.user_create') }}">create property</a></li>
                                                                         <li class="nav-item"><a class="nav-link" href="{{ url_for('auth.profile') }}">My profile</a></li>
-                                                                        <li class="nav-item"><a class="nav-link" href="user-payment">Cards & payment</a></li>
-                                                                        <li class="nav-item"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#logout" class="nav-link">Log out</a></li>
+                                                                        <li class="nav-item"><a class="nav-link" href="{{ url_for('main.user_payment') }}">Cards & payment</a></li>
+                                                                        <li class="nav-item"><a href="{{ url_for('auth.logout') }}" data-bs-toggle="modal" data-bs-target="#logout" class="nav-link">Log out</a></li>
                                                                     </ul>
                                                                 </div>
                                                             </div>
@@ -566,9 +565,9 @@
                                         </div>
                                     </div>
                                     <div class="media-body">
-                                        <h5>{{ current_user.first_name }}</h5>
-                                        <h6 class="font-roboto">{{ current_user.email }}</h6>
-                                        <h6 class="font-roboto mb-0">{{ current_user.phone }}</h6>
+                                        <h5>{{ current_user.first_name|d('john', true) }}</h5>
+                                        <h6 class="font-roboto">{{ current_user.email|d('jhondoe@abc.com', true) }}</h6>
+                                        <h6 class="font-roboto mb-0">{{ current_user.phone|d('+91 846 - 547 - 210', true) }}</h6>
                                     </div>
                                 </div>
                                 <div class="connected-social">                                    
@@ -584,10 +583,10 @@
                                 <ul class="nav nav-tabs right-line-tab">
                                     <li class="nav-item"><a class="nav-link" href="{{ url_for('main.user') }}">Dashboard</a></li>
                                     <li class="nav-item"><a class="nav-link" href="{{ url_for('main.user_listing') }}">My Listing</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{{ url_for('main.user_create') }}">create property</a></li>
+                                    <li class="nav-item"><a class="nav-link " href="{{ url_for('main.user_create') }}">create property</a></li>
                                     <li class="nav-item"><a class="nav-link active" href="{{ url_for('auth.profile') }}">My profile</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="user-payment">Cards & payment</a></li>
-                                    <li class="nav-item"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#logout" class="nav-link">Log out</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ url_for('main.user_payment') }}">Cards & payment</a></li>
+                                    <li class="nav-item"><a href="{{ url_for('auth.logout') }}" data-bs-toggle="modal" data-bs-target="#logout" class="nav-link">Log out</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -908,6 +907,7 @@
                 </div>
                 <div class="modal-body">
                     <form>
+                        {{ form.hidden_tag() }}
                         <div class="row gx-3">
                             <div class="form-group col-md-6">
                                 <label for="first">first name</label>
@@ -953,6 +953,7 @@
                 </div>
                 <div class="modal-body">
                     <form>
+                        {{ form.hidden_tag() }}
                         <div class="row gx-3">
                             <div class="form-group col-12">
                                 <label for="old">current email</label>
@@ -990,6 +991,7 @@
                 </div>
                 <div class="modal-body">
                     <form>
+                        {{ form.hidden_tag() }}
                         <div class="row gx-3">
                             <div class="form-group col-12">
                                 <label for="p-o">current password</label>

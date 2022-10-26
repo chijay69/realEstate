@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, SubmitField, FloatField, IntegerField, DateField, BooleanField, \
-    SelectField
+    SelectField, PasswordField
 from wtforms.validators import Length, Email, DataRequired
 from .read import get_country_dict
 
@@ -80,5 +80,18 @@ class MyPropertyForm(FlaskForm):
     wifi = BooleanField('wifi')
 
 
+class CreditCardForm(FlaskForm):
+    card_number = IntegerField('Card Number', validators=[DataRequired()])
+    card_holder = StringField("Card Holder's Name", validators=[DataRequired()])
+    card_type = SelectField("Card Type", validators=[DataRequired()], choices=[('Add card', 'Add card'), ('credit card', 'credit card'), ('debit card', 'debit card')])
+    exp_date = IntegerField("Expiry Date", validators=[DataRequired()])
+    cvv = PasswordField("CVV", validators=[DataRequired(), Length(1, 3)])
+    submit = SubmitField('Add Card')
 
 
+class EditCreditCardForm(FlaskForm):
+    card_number = IntegerField('Card Number', validators=[DataRequired()])
+    card_holder = StringField("Card Holder's Name", validators=[DataRequired()])
+    exp_date = IntegerField("Expiry Date", validators=[DataRequired()])
+    cvv = PasswordField("CVV", validators=[DataRequired(), Length(1, 3)])
+    submit = SubmitField('Update Card')

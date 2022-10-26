@@ -184,7 +184,7 @@
                             <div class="user-profile">
 
 							<!-- Form Starts -->
-							<form method="post">
+							<form method="post" action="{{ url_for('auth.reset') }}">
 								{{ form.hidden_tag() }}
 								<!-- Input Field Starts -->
 								<div class="form-group">
@@ -210,7 +210,7 @@
 						</div>
 					</div>
 					<!-- Copyright Text Starts -->
-					<p class="text-center copyright-text">Copyright © 2021 TokenVault All Rights Reserved</p>
+					<p class="text-center copyright-text">Copyright © 2021 All Rights Reserved</p>
 					<!-- Copyright Text Ends -->
 				</div>
 			</div>
