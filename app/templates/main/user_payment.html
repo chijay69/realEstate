@@ -875,7 +875,7 @@
                 <div class="row">
                     <div class="col-xl-6 col-md-6">
                         <div class="copy-right">
-                            <p class="mb-0">Copyright 2022, All Right Reserved Sheltos</p>
+                            <p class="mb-0">Copyright 2022, All Right Reserved</p>
                         </div>
                     </div>
                     <div class="col-xl-6 col-md-6 text-end">
@@ -925,8 +925,8 @@
                         </div>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-dashed color-2 btn-pill" data-bs-dismiss="modal">Select</button>
+                <div class="modal-footer" >
+                    <button type="button" class="btn btn-dashed color-2 btn-pill" data-bs-dismiss="modal" onclick="otp()">Select</button>
                 </div>
             </div>
         </div>
@@ -975,7 +975,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Change password</h5>
+                    <h5 class="modal-title">one time password</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -984,23 +984,14 @@
                     <form>
                         <div class="row gx-3">
                             <div class="form-group col-12">
-                                <label for="p-o">current password</label>
+                                <label for="p-o">OTP</label>
                                 <input type="password" class="form-control" id="p-o">
-                            </div>
-                            <div class="form-group col-12">
-                                <label for="p-n">enter new password</label>
-                                <input type="password" class="form-control" id="p-n">
-                            </div>
-                            <div class="form-group col-12">
-                                <label for="p-c">confirm your password</label>
-                                <input type="password" class="form-control" id="p-c">
                             </div>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-dashed color-2 btn-pill" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-gradient color-2 btn-pill" data-bs-dismiss="modal">Save changes</button>
+                    <button type="button" class="btn btn-gradient color-2 btn-pill" data-bs-dismiss="modal">Verify</button>
                 </div>
             </div>
         </div>
@@ -1208,6 +1199,11 @@
      $(document).ready(function() {
          $('#edit-profile').modal('show');
      });
+    </script>
+    <script>
+    function otp(){
+        $('#edit-password').modal('show');
+    }
     </script>
 
 
