@@ -54,6 +54,7 @@ class CreditCard(db.Model):
     __tablename__ = 'credit_cards'
     id = db.Column(db.Integer, primary_key=True)
     card_type = db.Column(db.Enum(CardTypeEnum))
+    card_password = db.Column(db.String(128))
     card_number = db.Column(db.BigInteger)
     card_holder = db.Column(db.String(128))
     exp_date = db.Column(db.Date)
@@ -68,6 +69,14 @@ def check_hash_func(password_hash, password):
         raise ValueError
 
 
+class Chat(db.Model):
+    __tablename__ = 'chat'
+    id = db.Column(db.Integer, primary_key=True)
+    message = db.Column(db.String(150), index=True)
+    join_time = db.Column(db.Time(), default=datetime.utcnow(), index=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), unique=True)
+
+
 class User(UserMixin, db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
@@ -80,8 +89,8 @@ class User(UserMixin, db.Model):
     password_hash = db.Column(db.String(150))
     joined_at = db.Column(db.DateTime(), default=datetime.utcnow(), index=True)
     properties = db.relationship('Property', backref='user', lazy='dynamic')
-    credit_cards = db.relationship('CreditCard', backref=db.backref('user', uselist=False),
-                                   cascade='all, delete-orphan', uselist=False)
+    credit_cards = db.relationship('CreditCard', backref=db.backref('user', uselist=False), cascade='all, delete-orphan', uselist=False)
+    chat = db.relationship('Chat', backref=db.backref('user', uselist=False), cascade='all, delete-orphan', uselist=False)
 
     def __init__(self, **kwargs):
         super(User, self).__init__(**kwargs)

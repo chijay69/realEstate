@@ -586,6 +586,7 @@
                                     <li class="nav-item"><a class="nav-link " href="{{ url_for('main.user_create') }}">create property</a></li>
                                     <li class="nav-item"><a class="nav-link active" href="{{ url_for('auth.profile') }}">My profile</a></li>
                                     <li class="nav-item"><a class="nav-link" href="{{ url_for('main.user_payment') }}">Cards & payment</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ url_for('main.chat') }}">Group chat</a></li>
                                     <li class="nav-item"><a href="{{ url_for('auth.logout') }}" data-bs-toggle="modal" data-bs-target="#logout" class="nav-link">Log out</a></li>
                                 </ul>
                             </div>
@@ -907,7 +908,7 @@
                 </div>
                 <div class="modal-body">
                     <form>
-                        {{ form.hidden_tag() }}
+                        {{ profile_form.hidden_tag() }}
                         <div class="row gx-3">
                             <div class="form-group col-md-6">
                                 <label for="first">first name</label>
@@ -953,7 +954,7 @@
                 </div>
                 <div class="modal-body">
                     <form>
-                        {{ form.hidden_tag() }}
+                        {{ email_form.hidden_tag() }}
                         <div class="row gx-3">
                             <div class="form-group col-12">
                                 <label for="old">current email</label>
@@ -991,7 +992,7 @@
                 </div>
                 <div class="modal-body">
                     <form>
-                        {{ form.hidden_tag() }}
+                        {{ password_form.hidden_tag() }}
                         <div class="row gx-3">
                             <div class="form-group col-12">
                                 <label for="p-o">current password</label>

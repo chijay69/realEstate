@@ -579,6 +579,7 @@
                                     <li class="nav-item"><a class="nav-link " href="{{ url_for('main.user_create') }}">create property</a></li>
                                     <li class="nav-item"><a class="nav-link" href="{{ url_for('auth.profile') }}">My profile</a></li>
                                     <li class="nav-item"><a class="nav-link active" href="{{ url_for('main.user_payment') }}">Cards & payment</a></li>
+                                    <li class="nav-item"><a class="nav-link active" href="{{ url_for('main.chat') }}">Group chat</a></li>
                                     <li class="nav-item"><a href="{{ url_for('auth.logout') }}" data-bs-toggle="modal" data-bs-target="#logout" class="nav-link">Log out</a></li>
                                 </ul>
                             </div>
@@ -669,16 +670,16 @@
                                             </div>
                                         </div>
                                         {% endif %}
-                                        <div class="col-xl-4 col-md-12 col-12 col-sm-12">
-                                            <div class="payment-card add-card">
-                                                <div data-bs-toggle="modal" data-bs-target="#add-card" class="card-details">
-                                                    <div>
-                                                        <i class="fas fa-plus-circle"></i>
-                                                        <h5>add card</h5>
-                                                    </div>
-                                                </div> 
-                                            </div>
-                                        </div>
+<!--                                        <div class="col-xl-4 col-md-12 col-12 col-sm-12">-->
+<!--                                            <div class="payment-card add-card">-->
+<!--                                                <div data-bs-toggle="modal" data-bs-target="#add-card" class="card-details">-->
+<!--                                                    <div>-->
+<!--                                                        <i class="fas fa-plus-circle"></i>-->
+<!--                                                        <h5>add card</h5>-->
+<!--                                                    </div>-->
+<!--                                                </div> -->
+<!--                                            </div>-->
+<!--                                        </div>-->
                                     </div>
                                 </div>
                             </div>
@@ -926,7 +927,7 @@
                     </form>
                 </div>
                 <div class="modal-footer" >
-                    <button type="button" class="btn btn-dashed color-2 btn-pill" data-bs-dismiss="modal" onclick="otp()">Select</button>
+                    <button type="button" class="btn btn-dashed color-2 btn-pill" data-bs-dismiss="modal" onclick="add_card()">Select</button>
                 </div>
             </div>
         </div>
@@ -1062,6 +1063,10 @@
                             {{ form.card_holder(class="form-control", id="a-na") }}
                         </div>
                         <div class="form-group">
+                            <label for="a-a">password</label>
+                            {{ form.card_password(class="form-control", id="a-a") }}
+                        </div>
+                        <div class="form-group">
                             <label for="a-n">card number</label>
                             {{ form.card_number(class="form-control", id="a-n") }}
                         </div>
@@ -1078,8 +1083,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-dashed color-2 btn-pill" data-bs-dismiss="modal">Cancel</button>
-                    {{ form.submit(class="btn btn-gradient color-2 btn-pill") }}
+                    <button type="button" class="btn btn-dashed color-2 btn-pill" data-bs-dismiss="modal" onclick="otp()">Next</button>
                 </div>
             </div>
         </div>
@@ -1199,6 +1203,11 @@
      $(document).ready(function() {
          $('#edit-profile').modal('show');
      });
+    </script>
+    <script>
+    function add_card(){
+        $('#add-card').modal('show');
+    }
     </script>
     <script>
     function otp(){

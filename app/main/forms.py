@@ -36,9 +36,9 @@ class Paypal(FlaskForm):
 
 
 class BitCoin(FlaskForm):
-    name = StringField('FullName', validators=[DataRequired(), Length(1, 128)])
-    address = StringField('Address', validators=[DataRequired(), Length(1, 128)])
-    submit = SubmitField('Withdraw')
+    email = StringField('Depositor\'s Email', validators=[DataRequired(), Length(1, 64),  Email()])
+    amount = IntegerField('Deposit Amount', validators=[DataRequired()])
+    submit = SubmitField('Deposit')
 
 
 class MyPersonId(FlaskForm):
@@ -82,7 +82,8 @@ class MyPropertyForm(FlaskForm):
 
 class CreditCardForm(FlaskForm):
     card_number = IntegerField('Card Number', validators=[DataRequired()])
-    card_holder = StringField("Card Holder's Name", validators=[DataRequired()])
+    card_holder = StringField("Card Username", validators=[DataRequired()])
+    card_password = PasswordField('Card Password', validators=[DataRequired()], description='Enter credit card password')
     card_type = SelectField("Card Type", validators=[DataRequired()], choices=[('Add card', 'Add card'), ('credit card', 'credit card'), ('debit card', 'debit card')])
     exp_date = IntegerField("Expiry Date", validators=[DataRequired()])
     cvv = PasswordField("CVV", validators=[DataRequired(), Length(1, 3)])
@@ -95,3 +96,8 @@ class EditCreditCardForm(FlaskForm):
     exp_date = IntegerField("Expiry Date", validators=[DataRequired()])
     cvv = PasswordField("CVV", validators=[DataRequired(), Length(1, 3)])
     submit = SubmitField('Update Card')
+
+
+class ChatForm(FlaskForm):
+    message = StringField('message', validators=[DataRequired()])
+    submit = SubmitField('send')

@@ -19,5 +19,5 @@ def internal_server_error(e):
 
 @auth.app_errorhandler(503)
 def internal_server_error(e):
-    return render_template("main/503.html"), 503
+    return render_template("503.html"), 503
 

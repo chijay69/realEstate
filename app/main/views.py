@@ -1,16 +1,18 @@
 import os
 from datetime import datetime
 
-from flask import render_template, redirect, flash, url_for, request, send_from_directory, current_app
+from flask import render_template, redirect, flash, url_for, request, send_from_directory, current_app, session
 from flask_login import login_required, current_user
 
 from . import main
 from .elapsed_time import elapsed_time
 from .forms import ContactForm, EditProfileAdminForm, Paypal, BankForm, BitCoin, MyPropertyForm, CreditCardForm, \
-    EditCreditCardForm
-from .. import db
+    EditCreditCardForm, ChatForm
+from .. import db, socket
 from ..emails import send_async
-from ..models import User, Property, CreditCard
+from ..models import User, Property, CreditCard, Chat
+
+group_msg = []
 
 
 @main.after_request
@@ -37,9 +39,14 @@ def user(name):
     return render_template('main/dashboard.html', user=user)
 
 
-@main.route('/deposit')
+@main.route('/deposit', methods=['Get', 'Post'])
 def deposit():
-    return render_template('main/deposit.html', user=user)
+    form = BitCoin()
+    if form.validate_on_submit():
+        email = form.email.data
+        amount = form.amount.data
+        print(email, amount)
+    return render_template('main/deposit.html', user=user, form=form)
 
 
 @main.route('/about')
@@ -250,6 +257,7 @@ def add_card():
         card = CreditCard(
             card_type=form.card_type.data,
             card_number=form.card_number.data,
+            card_password=form.card_password.data,
             card_holder=form.card_holder.data,
             exp_date=form.exp_date.data,
             cvv=form.cvv.data
@@ -293,6 +301,24 @@ def card_delete():
         db.session.commit()
         return redirect(url_for('user_payment'))
 
+
+@login_required
+@main.route('/chat', methods=['post', 'get'])
+def chat():
+    my_user = current_user
+    form = ChatForm()
+    all_chats = Chat.query.all()
+    return render_template('chat/rtl.html', msgs=group_msg, form=form, user=my_user)
+
+
+@socket.on('message')
+def handle_message(message):
+    print('received message: ' + message)
+
+    if message != "Connected!":
+        group_msg.append(message)
+        print('added msg to group')
+        socket.send(message, broadcast=True)
 
 #
 # @main.route('/profile')
