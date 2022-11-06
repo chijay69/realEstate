@@ -2,7 +2,7 @@
 from datetime import timedelta
 
 from app import create_app, db, socket
-from app.models import User, Property, CreditCard
+from app.models import User, Property, CreditCard, Chat
 from flask_migrate import Migrate
 
 app = create_app(os.getenv('FLASK_CONFIG') or 'default')
@@ -20,4 +20,4 @@ def shutdown_session(exception=None):
 
 
 if __name__ == '__main__':
-    socket.run(app, host="localhost")
+    socket.run(app)

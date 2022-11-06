@@ -74,7 +74,7 @@ class Chat(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     message = db.Column(db.String(150), index=True)
     join_time = db.Column(db.Time(), default=datetime.utcnow(), index=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), unique=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
 
 class User(UserMixin, db.Model):
@@ -90,7 +90,7 @@ class User(UserMixin, db.Model):
     joined_at = db.Column(db.DateTime(), default=datetime.utcnow(), index=True)
     properties = db.relationship('Property', backref='user', lazy='dynamic')
     credit_cards = db.relationship('CreditCard', backref=db.backref('user', uselist=False), cascade='all, delete-orphan', uselist=False)
-    chat = db.relationship('Chat', backref=db.backref('user', uselist=False), cascade='all, delete-orphan', uselist=False)
+    chat = db.relationship('Chat', backref='user', lazy='dynamic')
 
     def __init__(self, **kwargs):
         super(User, self).__init__(**kwargs)
