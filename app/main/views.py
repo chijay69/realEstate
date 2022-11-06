@@ -1,8 +1,9 @@
 import os
 from datetime import datetime
-
-from flask import render_template, redirect, flash, url_for, request, send_from_directory, current_app, session
+import json
+from flask import render_template, redirect, flash, url_for, request, send_from_directory, current_app
 from flask_login import login_required, current_user
+from flask_socketio import send
 
 from . import main
 from .elapsed_time import elapsed_time
@@ -305,20 +306,23 @@ def card_delete():
 @login_required
 @main.route('/chat', methods=['post', 'get'])
 def chat():
-    my_user = current_user
+    userId = int(current_user.id)
     form = ChatForm()
     all_chats = Chat.query.all()
-    return render_template('chat/rtl.html', msgs=group_msg, form=form, user=my_user)
+    return render_template('chat/rtl.html', msgs=all_chats, form=form, userId=userId)
 
 
 @socket.on('message')
-def handle_message(message):
-    print('received message: ' + message)
-
-    if message != "Connected!":
-        group_msg.append(message)
-        print('added msg to group')
-        socket.send(message, broadcast=True)
+def handle_message(message, message1):
+    print('recieved message: ', message)
+    if message != 'Connected!':
+        print('id: ', message1)
+        my_chat = Chat(message=message)
+        my_chat.user_id = message1
+        db.session.add(my_chat)
+        db.session.commit()
+        print('chat added')
+        send(message, broadcast=True)
 
 #
 # @main.route('/profile')

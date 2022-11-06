@@ -31,40 +31,43 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js" integrity="sha512-iWPnCISAd/J+ZacwV2mbNLCaPGRrRo5OS81lKTVPtRg1wGTC20Cfmp5Us5RcbLv42QLdbAWl0MI57yox5VecQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script type="text/javascript" charset="utf-8">
             $(document).ready(function (){
+                var userId = $('#img1').attr('src');
+                console.log(userId);
+                alert(userId);
+
                 var socket = io.connect("http://localhost:5000");
                 socket.on('connect', function() {
-                    socket.send("Connected!");
+                    socket.send("Connected!", userId);
                 });
 
-                var userId = document.getElementByClassName('myId')[0].get('id')
-
-                socket.on('message', function(message) {
-                    console.log(message);
-                    console.log(userId);
-                    $('#messages').append($('<p>').text(message))
+                socket.on('message', function(data) {
+                    $('#messages').append($('<p>').text(data));
                 });
 
-                $("#sendBtn").click(function(){
-                    socket.send($('#message').val() + ' ' + userId)
-                    $('#message').val('')
+                $("#sendBtn").on('click', function () {
+                    socket.send($('#message').val(), userId);
+                    $('#message').val('');
                 });
             });
         </script>
         <script type="text/javascript" charset="utf-8">
             $(document).ready(function (){
+                var userId = $('#img1').attr('src');
+                console.log(userId);
+                alert(userId);
+
                 var socket = io.connect("http://localhost:5000");
                 socket.on('connect', function() {
-                    socket.send("Connected!");
+                    socket.send("Connected!", userId);
                 });
 
                 socket.on('message', function(message) {
-                    console.log(message);
-                    $('#messages1').append($('<p>').text(message))
+                    $('#messages1').append($('<p>').text(message));
                 });
 
                 $("#sendBtn1").click(function(){
-                    socket.send($('#message1').val())
-                    $('#message1').val('')
+                    socket.send($('#message1').val(), userId);
+                    $('#message1').val('');
                 });
             });
         </script>
@@ -75,6 +78,7 @@
         <div class="layout-wrapper d-lg-flex">
             <!-- start side chat user-->
             <div id="sidepiece">
+                <img id="img1" src="{{ userId }}" style="display:none"/>
                 <!-- start chat conversation -->
                 <div class="chat-conversation p-3 p-lg-4" data-simplebar="init">
                     <ul class="list-unstyled mb-0">
@@ -148,7 +152,7 @@
                             </div>
                         </li>
                         {% for msg in msgs %}
-                        {% if msg.id == user.id %}
+                        {% if msg.user_id == userId %}
                         <li>
                             <div class="conversation-list">
                                 <div class="chat-avatar">
@@ -160,9 +164,9 @@
                                     <div class="ctext-wrap">
                                         <div class="ctext-wrap-content">
                                             <p class="mb-0">
-                                                {{ msg }}
+                                                {{ msg.message }}
                                             </p>
-                                            <p class="chat-time mb-0"><i class="ri-time-line align-middle"></i> <span class="align-middle">10:05</span></p>
+                                            <p class="chat-time mb-0"><i class="ri-time-line align-middle"></i> <span class="align-middle">{{ msg.join_time }}</span></p>
                                         </div>
                                         <div class="dropdown align-self-start">
                                             <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -177,7 +181,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="conversation-name myId" id="{{ user.id }}">{{ user.first_name }}</div>
+                                    <div class="conversation-name myId">{{ current_user.first_name }}</div>
                                 </div>
 
                             </div>
@@ -193,9 +197,9 @@
                                     <div class="ctext-wrap">
                                         <div class="ctext-wrap-content">
                                             <p class="mb-0">
-                                                {{ msg }}
+                                                {{ msg.message }}
                                             </p>
-                                            <p class="chat-time mb-0"><i class="ri-time-line align-middle"></i> <span class="align-middle">10:02</span></p>
+                                            <p class="chat-time mb-0"><i class="ri-time-line align-middle"></i> <span class="align-middle">{{ msg.join_time }}</span></p>
                                         </div>
 
                                         <div class="dropdown align-self-start">
@@ -710,7 +714,7 @@
                                     </div>
                                 </li>
                                 {% for msg in msgs %}
-                                {% if msg.id == user.id %}
+                                {% if msg.user_id == userId %}
                                 <li>
                                     <div class="conversation-list">
                                         <div class="chat-avatar">
@@ -722,7 +726,7 @@
                                             <div class="ctext-wrap">
                                                 <div class="ctext-wrap-content">
                                                     <p class="mb-0">
-                                                        {{ msg }}
+                                                        {{ msg.message }}
                                                     </p>
                                                     <p class="chat-time mb-0"><i class="ri-time-line align-middle"></i> <span class="align-middle">{{ msg.join_time }}</span></p>
                                                 </div>
@@ -739,7 +743,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="conversation-name" id="{{ user.id }}">{{ user.first_name }}</div>
+                                            <div class="conversation-name">{{ current_user.first_name }}</div>
                                         </div>
 
                                     </div>
@@ -755,7 +759,7 @@
                                             <div class="ctext-wrap">
                                                 <div class="ctext-wrap-content">
                                                     <p class="mb-0">
-                                                        {{ msg }}
+                                                        {{ msg.message }}
                                                     </p>
                                                     <p class="chat-time mb-0"><i class="ri-time-line align-middle"></i> <span class="align-middle">{{ msg.join_time }}</span></p>
                                                 </div>
