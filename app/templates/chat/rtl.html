@@ -25,8 +25,6 @@
         <link href="{{ url_for('static', filename='chat/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- App Css-->
         <link href="{{ url_for('static', filename='chat/assets/css/app-rtl.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
-        <!--socketIO-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js" integrity="sha512-iWPnCISAd/J+ZacwV2mbNLCaPGRrRo5OS81lKTVPtRg1wGTC20Cfmp5Us5RcbLv42QLdbAWl0MI57yox5VecQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     </head>
 
@@ -192,6 +190,10 @@
 
         <!-- JAVASCRIPT -->
         <script src="{{ url_for('static', filename='chat/assets/libs/jquery/jquery.min.js') }}"></script>
+
+        <!--socketIO-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js" integrity="sha512-iWPnCISAd/J+ZacwV2mbNLCaPGRrRo5OS81lKTVPtRg1wGTC20Cfmp5Us5RcbLv42QLdbAWl0MI57yox5VecQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
         <script src="{{ url_for('static', filename='chat/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ url_for('static', filename='chat/assets/libs/simplebar/simplebar.min.js') }}"></script>
         <script src="{{ url_for('static', filename='chat/assets/libs/node-waves/waves.min.js') }}"></script>
@@ -205,6 +207,15 @@
         <script src="{{ url_for('static', filename='chat/assets/js/pages/index.init.js') }}"></script>
 
         <script src="{{ url_for('static', filename='chat/assets/js/app.js') }}"></script>
+
+        <script>
+            $(document).ready(function () {
+                if (window.matchMedia('(max-width: 768px)').matches) {
+                    $('#sidepiece').show();
+                };
+            });
+        </script>
+
         <script type="text/javascript" charset="utf-8">
             $(document).ready(function (){
                 var userId = $('#img1').attr('src');
@@ -221,17 +232,9 @@
                 $("#sendBtn").on('click', function () {
                     socket.send($('#message').val(), userId);
                     $('#message').val('');
-                    alert('msg sent');
                 });
             });
         </script>
 
-        <script>
-            $(document).ready(function () {
-                if (window.matchMedia('(max-width: 768px)').matches) {
-                    $('#sidepiece').show();
-                };
-            });
-        </script>
     </body>
 </html>
