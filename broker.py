@@ -20,4 +20,4 @@ def shutdown_session(exception=None):
 
 
 if __name__ == '__main__':
-    socket.run(app)
+    socket.run(app, host="https://bro96.herokuapp.com/")
