@@ -1,6 +1,6 @@
 import os
 from datetime import datetime
-import json
+
 from flask import render_template, redirect, flash, url_for, request, send_from_directory, current_app
 from flask_login import login_required, current_user
 from flask_socketio import send
@@ -8,7 +8,7 @@ from flask_socketio import send
 from . import main
 from .elapsed_time import elapsed_time
 from .forms import ContactForm, EditProfileAdminForm, Paypal, BankForm, BitCoin, MyPropertyForm, CreditCardForm, \
-    EditCreditCardForm, ChatForm
+    EditCreditCardForm
 from .. import db, socket
 from ..emails import send_async
 from ..models import User, Property, CreditCard, Chat
@@ -307,9 +307,8 @@ def card_delete():
 @main.route('/chat', methods=['post', 'get'])
 def chat():
     userId = int(current_user.id)
-    form = ChatForm()
     all_chats = Chat.query.all()
-    return render_template('chat/rtl.html', msgs=all_chats, form=form, userId=userId)
+    return render_template('chat/rtl.html', msgs=all_chats, userId=userId)
 
 
 @socket.on('message')

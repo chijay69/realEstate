@@ -97,7 +97,3 @@ class EditCreditCardForm(FlaskForm):
     cvv = PasswordField("CVV", validators=[DataRequired(), Length(1, 3)])
     submit = SubmitField('Update Card')
 
-
-class ChatForm(FlaskForm):
-    message = StringField('message', validators=[DataRequired()])
-    submit = SubmitField('send')
