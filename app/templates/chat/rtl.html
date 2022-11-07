@@ -221,6 +221,7 @@
                 $("#sendBtn").on('click', function () {
                     socket.send($('#message').val(), userId);
                     $('#message').val('');
+                    alert('msg sent');
                 });
             });
         </script>
