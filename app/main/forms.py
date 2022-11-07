@@ -2,7 +2,6 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, SubmitField, FloatField, IntegerField, DateField, BooleanField, \
     SelectField, PasswordField
 from wtforms.validators import Length, Email, DataRequired
-from .read import get_country_dict
 
 
 class ContactForm(FlaskForm):
