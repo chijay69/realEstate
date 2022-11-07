@@ -25,50 +25,9 @@
         <link href="{{ url_for('static', filename='chat/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- App Css-->
         <link href="{{ url_for('static', filename='chat/assets/css/app-rtl.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
-        <!--jQuery-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <!--socketIO-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js" integrity="sha512-iWPnCISAd/J+ZacwV2mbNLCaPGRrRo5OS81lKTVPtRg1wGTC20Cfmp5Us5RcbLv42QLdbAWl0MI57yox5VecQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script type="text/javascript" charset="utf-8">
-            $(document).ready(function (){
-                var userId = $('#img1').attr('src');
 
-                var socket = io.connect();
-                socket.on('connect', function() {
-                    socket.send("Connected!", userId);
-                });
-
-                socket.on('message', function(data) {
-                    $('#messages').append($('<p>').text(data));
-                });
-
-                $("#sendBtn").on('click', function () {
-                    socket.send($('#message').val(), userId);
-                    $('#message').val('');
-                });
-            });
-        </script>
-<!--        <script type="text/javascript" charset="utf-8">-->
-<!--            $(document).ready(function (){-->
-<!--                var userId = $('#img1').attr('src');-->
-<!--                console.log(userId);-->
-<!--                alert(userId);-->
-
-<!--                var socket = io();-->
-<!--                socket.on('connect', function() {-->
-<!--                    socket.send("Connected!", userId);-->
-<!--                });-->
-
-<!--                socket.on('message', function(message) {-->
-<!--                    $('#messages1').append($('<p>').text(message));-->
-<!--                });-->
-
-<!--                $("").click(function(){-->
-<!--                    socket.send($('#message1').val(), userId);-->
-<!--                    $('#message1').val('');-->
-<!--                });-->
-<!--            });-->
-<!--        </script>-->
     </head>
 
     <body>
@@ -246,6 +205,25 @@
         <script src="{{ url_for('static', filename='chat/assets/js/pages/index.init.js') }}"></script>
 
         <script src="{{ url_for('static', filename='chat/assets/js/app.js') }}"></script>
+        <script type="text/javascript" charset="utf-8">
+            $(document).ready(function (){
+                var userId = $('#img1').attr('src');
+
+                var socket = io.connect();
+                socket.on('connect', function() {
+                    socket.send("Connected!", userId);
+                });
+
+                socket.on('message', function(data) {
+                    $('#messages').append($('<p>').text(data));
+                });
+
+                $("#sendBtn").on('click', function () {
+                    socket.send($('#message').val(), userId);
+                    $('#message').val('');
+                });
+            });
+        </script>
 
         <script>
             $(document).ready(function () {
