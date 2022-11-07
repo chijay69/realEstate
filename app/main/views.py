@@ -314,6 +314,7 @@ def chat():
 @socket.on('message')
 def handle_message(message, message1):
     print('recieved message: ', message)
+    print('from userID: ', message1)
     if message != 'Connected!':
         print('id: ', message1)
         my_chat = Chat(message=message)
