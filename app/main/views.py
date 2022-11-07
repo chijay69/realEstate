@@ -1,5 +1,6 @@
 import os
 from datetime import datetime
+import time
 
 from flask import render_template, redirect, flash, url_for, request, send_from_directory, current_app
 from flask_login import login_required, current_user
@@ -316,13 +317,14 @@ def handle_message(message, message1):
     print('recieved message: ', message)
     print('from userID: ', message1)
     if message != 'Connected!':
-        print('id: ', message1)
         my_chat = Chat(message=message)
         my_chat.user_id = message1
         db.session.add(my_chat)
         db.session.commit()
         print('chat added')
+        time.sleep(3)
         send(message, broadcast=True)
+        time.sleep(2)
 
 #
 # @main.route('/profile')
