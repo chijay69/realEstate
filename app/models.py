@@ -3,7 +3,7 @@ from datetime import datetime
 
 from flask import current_app
 from flask_login import UserMixin, current_user
-from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
+# from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 import bcrypt
 from werkzeug.security import generate_password_hash, check_password_hash
 
